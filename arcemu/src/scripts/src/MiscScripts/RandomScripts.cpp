@@ -28,8 +28,9 @@ void GuardsOnSalute(Player* pPlayer, Unit* pUnit)
 	if(((pUnit->GetEntry() == 68 || pUnit->GetEntry() == 1976) && pPlayer->GetStandingRank(72) >= STANDING_FRIENDLY) || ( pUnit->GetEntry() == 3296 && pPlayer->GetStandingRank(76) >= STANDING_FRIENDLY))
 	{
 		uint32 EmoteChance = RandomUInt(100);
-		if(EmoteChance < 33) // 1/3 chance to get Salute from Guard
-			pUnit->Emote(EMOTE_ONESHOT_SALUTE);
+		if(EmoteChance < 100) // 1/3 chance to get Salute from Guard
+			pUnit->Emote(EMOTE_ONESHOT_RUDE);
+			//pUnit->Emote(EMOTE_ONESHOT_SALUTE);
 	}
 }
 
