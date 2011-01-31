@@ -20,11 +20,13 @@ public class GameBridge
 		while(!ss.isClosed())
 		{
 			s = ss.accept();
+			System.out.println("Connection!");
+			
 			is = s.getInputStream();
 			br = new BufferedReader(new InputStreamReader(is));
 			while(!s.isClosed())
 			{
-				System.out.println(br.readLine());
+				System.out.println("Message: [" + br.readLine() + "]");
 			}
 		}
 	}

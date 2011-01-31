@@ -19,8 +19,14 @@
 
 #include "Setup.h"
 
+#include "EventBridge.h"
+
+EventBridge*	eb;
+
 void GuardsOnSalute(Player* pPlayer, Unit* pUnit)
 {
+	eb->send("salute!");
+
 	if ( pPlayer == NULL || pUnit == NULL )
 		return;
 
@@ -87,4 +93,5 @@ void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 void SetupRandomScripts(ScriptMgr * mgr)
 {	// Register Hook Event here
 	mgr->register_hook(SERVER_HOOK_EVENT_ON_EMOTE, (void *)&OnEmote);
+	eb = new EventBridge();
 }
