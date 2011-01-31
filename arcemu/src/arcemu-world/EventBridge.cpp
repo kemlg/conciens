@@ -59,6 +59,5 @@ void EventBridge::sendMessage(char* send_data)
 	{
 		send(sock, send_data, strlen(send_data), 0);
 		close(sock);
-		break;
 	}
 }
