@@ -32,7 +32,7 @@ EventBridge::~EventBridge()
 	// TODO Auto-generated destructor stub
 }
 
-void EventBridge::send(char* send_data)
+void EventBridge::sendMessage(char* send_data)
 {
 	// int					bytes_recieved;
 	//char send_data[1024]; //, recv_data[1024];

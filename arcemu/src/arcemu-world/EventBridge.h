@@ -23,7 +23,7 @@ class EventBridge
 public:
 	EventBridge();
 	virtual ~EventBridge();
-	void send(char*);
+	void sendMessage(char*);
 
 private:
 	int	sock;

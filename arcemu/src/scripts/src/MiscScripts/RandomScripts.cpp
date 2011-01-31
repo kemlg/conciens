@@ -25,7 +25,7 @@ EventBridge*	eb;
 
 void GuardsOnSalute(Player* pPlayer, Unit* pUnit)
 {
-	eb->send("salute!");
+	eb->sendMessage("salute!");
 
 	if ( pPlayer == NULL || pUnit == NULL )
 		return;
