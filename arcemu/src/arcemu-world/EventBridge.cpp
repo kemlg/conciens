@@ -5,6 +5,8 @@
  *      Author: sergio
  */
 
+#include "StdAfx.h"
+
 #include "EventBridge.h"
 
 const char*	endMsg	= "\n";
@@ -15,6 +17,7 @@ EventBridge::EventBridge()
 	struct hostent* host;
 	struct sockaddr_in server_addr;
 
+	Log.Notice("EventBridge", "Starting EventBridge...");
 	host = gethostbyname("127.0.0.1");
 
 	this->sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -25,6 +28,14 @@ EventBridge::EventBridge()
 	bzero(&(server_addr.sin_zero), 8);
 
 	connect(sock, (struct sockaddr *) &server_addr, sizeof(struct sockaddr));
+	if(sock < 1)
+	{
+		Log.Notice("EventBridge", "sock < 1");
+	}
+	else
+	{
+		Log.Notice("EventBridge", "sock >= 1");
+	}
 }
 
 EventBridge::~EventBridge()
