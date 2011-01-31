@@ -93,6 +93,7 @@ void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 
 void SetupRandomScripts(ScriptMgr * mgr)
 {	// Register Hook Event here
+	Log.Notice("RandomScripts", "Setting up RandomScripts...");
 	mgr->register_hook(SERVER_HOOK_EVENT_ON_EMOTE, (void *)&OnEmote);
 	eb = new EventBridge();
 }
