@@ -22,6 +22,7 @@
 #include "EventBridge.h"
 
 EventBridge*	eb;
+//
 
 void GuardsOnSalute(Player* pPlayer, Unit* pUnit)
 {
