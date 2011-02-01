@@ -435,6 +435,7 @@ void WorldSession::HandleGossipHelloOpcode( WorldPacket & recv_data )
 	if(qst_giver->GetAIInterface())
 		qst_giver->GetAIInterface()->StopMovement(30000);
 
+	// cOncienS
 	sHookInterface.OnGossipHello(_player, qst_giver);
 
 	// unstealth meh

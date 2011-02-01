@@ -74,7 +74,7 @@ void OnGossipHello(Player* pPlayer, Unit* pUnit)
 	uint64	player, unit;
 
 	player = pPlayer->GetGUID();
-	if(!pUnit || !pUnit->isAlive() || pUnit->GetAIInterface()->getNextTarget())
+	if(!pUnit)
 	{
 		unit = 0;
 	}
