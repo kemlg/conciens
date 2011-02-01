@@ -68,6 +68,25 @@ void GuardsOnWave(Player* pPlayer, Unit* pUnit)
 	}
 }
 
+void OnGossipHello(Player* pPlayer, Unit* pUnit)
+{
+	char	msg[1024];
+	uint64	player, unit;
+
+	player = pPlayer->GetGUID();
+	if(!pUnit || !pUnit->isAlive() || pUnit->GetAIInterface()->getNextTarget())
+	{
+		unit = 0;
+	}
+	else
+	{
+		unit = pUnit->GetGUID();
+	}
+
+	sprintf(msg, "HELLO|%lu|%llu\n", player, unit);
+	eb->sendMessage(msg);
+}
+
 void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 {
 	char	msg[1024];
@@ -83,7 +102,7 @@ void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 		unit = pUnit->GetGUID();
 	}
 
-	sprintf(msg, "EMOTE|%llu|%llu\n", player, unit);
+	sprintf(msg, "EMOTE|%u|%lu|%llu\n", Emote, player, unit);
 	eb->sendMessage(msg);
 	/*
 	if (!pUnit || !pUnit->isAlive() || pUnit->GetAIInterface()->getNextTarget())
@@ -111,5 +130,6 @@ void SetupRandomScripts(ScriptMgr * mgr)
 {	// Register Hook Event here
 	Log.Notice("RandomScripts", "Setting up RandomScripts...");
 	mgr->register_hook(SERVER_HOOK_EVENT_ON_EMOTE, (void *)&OnEmote);
+	mgr->register_hook(SERVER_HOOK_EVENT_ON_GOSSIP_HELLO, (void *)&OnGossipHello);
 	eb = new EventBridge();
 }

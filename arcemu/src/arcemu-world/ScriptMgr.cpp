@@ -1416,3 +1416,11 @@ bool HookInterface::OnResurrect(Player * pPlayer)
 	}
 	return ret_val;
 }
+
+// cOncienS
+void HookInterface::OnGossipHello(Player * pPlayer, Unit * pUnit)
+{
+	ServerHookList hookList = sScriptMgr._hooks[SERVER_HOOK_EVENT_ON_GOSSIP_HELLO];
+	for(ServerHookList::iterator itr = hookList.begin(); itr != hookList.end(); ++itr)
+		((tOnGossipHello)*itr)(pPlayer, pUnit);
+}

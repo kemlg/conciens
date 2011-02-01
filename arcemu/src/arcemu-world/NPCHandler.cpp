@@ -435,6 +435,8 @@ void WorldSession::HandleGossipHelloOpcode( WorldPacket & recv_data )
 	if(qst_giver->GetAIInterface())
 		qst_giver->GetAIInterface()->StopMovement(30000);
 
+	sHookInterface.OnGossipHello(_player, qst_giver);
+
 	// unstealth meh
 	if( _player->IsStealth() )
 		_player->RemoveAllAuraType( SPELL_AURA_MOD_STEALTH );
