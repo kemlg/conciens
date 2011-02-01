@@ -257,11 +257,15 @@ public:
 
     const uint64& GetUInt64Value( uint32 index ) const
 	{
-		Arcemu::Util::ARCEMU_ASSERT(    index + uint32(1) < m_valuesCount );
+    	// cOncienS
+		//Arcemu::Util::ARCEMU_ASSERT(    index + uint32(1) < m_valuesCount );
+    	if (!m_uint32Values)
+                 return uint64(0);
+    	return *((uint64*)&(m_uint32Values[ index ]));
 
-        uint64 *p = reinterpret_cast< uint64* >( &m_uint32Values[ index ] );
+        //uint64 *p = reinterpret_cast< uint64* >( &m_uint32Values[ index ] );
 
-		return *p;
+		//return *p;
 	}
 
 	//! Get float property
