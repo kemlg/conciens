@@ -11,22 +11,29 @@ public class GameBridge
 {
 	public static void main(String args[]) throws IOException
 	{
-		ServerSocket	ss;
-		Socket			s;
+		ServerSocket	ssin, ssout;
+		Socket			sin ,sout;
 		InputStream		is;
 		BufferedReader	br;
+		String			line;
 		
-		ss = new ServerSocket(Constants.SOCK_PORT);
-		while(!ss.isClosed())
+		ssin = new ServerSocket(Constants.SOCK_PORT_IN);
+		ssout = new ServerSocket(Constants.SOCK_PORT_OUT);
+		while(!ssin.isClosed())
 		{
-			s = ss.accept();
-			System.out.println("Connection!");
+			sin = ssin.accept();
+			System.out.println("Connection in!");
+			sout = ssout.accept();
+			System.out.println("Connection out!");
 			
-			is = s.getInputStream();
+			is = sin.getInputStream();
 			br = new BufferedReader(new InputStreamReader(is));
-			while(!s.isClosed())
+			while(!sin.isClosed())
 			{
-				System.out.println("Message: [" + br.readLine() + "]");
+				line = br.readLine();
+				System.out.println("Message: [" + line + "]");
+				line = line + "\n";
+				sout.getOutputStream().write(line.getBytes());
 			}
 		}
 	}

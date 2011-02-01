@@ -26,7 +26,7 @@ public:
 	void sendMessage(char*);
 
 private:
-	int	sock;
+	int					sockout, sockin;
 };
 
 #endif /* EVENTBRIDGE_H_ */
