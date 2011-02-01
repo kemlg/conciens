@@ -17,8 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Setup.h"
+#include <stdio.h>
 
+#include "Setup.h"
 #include "EventBridge.h"
 
 EventBridge*	eb;
@@ -26,8 +27,6 @@ EventBridge*	eb;
 
 void GuardsOnSalute(Player* pPlayer, Unit* pUnit)
 {
-	eb->sendMessage("salute!");
-
 	if ( pPlayer == NULL || pUnit == NULL )
 		return;
 
@@ -71,6 +70,22 @@ void GuardsOnWave(Player* pPlayer, Unit* pUnit)
 
 void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 {
+	char	msg[1024];
+	uint64	player, unit;
+
+	player = pPlayer->GetGUID();
+	if(!pUnit || !pUnit->isAlive() || pUnit->GetAIInterface()->getNextTarget())
+	{
+		unit = 0;
+	}
+	else
+	{
+		unit = pUnit->GetGUID();
+	}
+
+	sprintf(msg, "EMOTE|%llu|%llu\n", player, unit);
+	eb->sendMessage(msg);
+	/*
 	if (!pUnit || !pUnit->isAlive() || pUnit->GetAIInterface()->getNextTarget())
 		return;
 
@@ -89,6 +104,7 @@ void OnEmote(Player* pPlayer, uint32 Emote, Unit* pUnit)
 		GuardsOnWave(pPlayer, pUnit);
 		break;
 	}
+	*/
 }
 
 void SetupRandomScripts(ScriptMgr * mgr)
