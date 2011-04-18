@@ -5,9 +5,14 @@
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>ccw.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
-<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>ccw.nature</nature>
 	</natures>
 </projectDescription>
-

@@ -8,8 +8,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 
-#include "StdAfx.h"
-
+#include "Log.h"
 #include "EventBridge.h"
 
 const char*	endMsg		= "\n";
@@ -29,7 +28,7 @@ void* processMessages(void* ptr)
 		recv_data[bytes_recieved] = '\n';
 		recv_data[bytes_recieved+1] = '\0';
 
-		Log.Notice("EventBridgeThread", recv_data);
+		sLog->outString("EventBridgeThread: %d bytes", recv_data);
 		//if (strcmp(recv_data, "q") == 0 || strcmp(recv_data, "Q") == 0)
 		//{
 		//	close(sock);
@@ -65,22 +64,22 @@ EventBridge::EventBridge()
 	connect(sockin, (struct sockaddr *) &server_addr, sizeof(struct sockaddr));
 	if(sockin < 1)
 	{
-		Log.Notice("EventBridge", "sockin < 1");
+		sLog->outString("EventBridge: sockin < 1");
 	}
 	else
 	{
-		Log.Notice("EventBridge", "sockin >= 1");
+		sLog->outString("EventBridge: sockin >= 1");
 	}
 
 	server_addr.sin_port = htons(port_out);
 	connect(sockout, (struct sockaddr *) &server_addr, sizeof(struct sockaddr));
 	if(sockout < 1)
 	{
-		Log.Notice("EventBridge", "sockout < 1");
+		sLog->outString("EventBridge: sockout < 1");
 	}
 	else
 	{
-		Log.Notice("EventBridge", "sockout >= 1");
+		sLog->outString("EventBridge: sockout >= 1");
 	}
 
 	/* Create independent threads each of which will execute function */
@@ -107,4 +106,12 @@ void EventBridge::sendMessage(char* send_data)
 		send(sockout, send_data, strlen(send_data), 0);
 		close(sockout);
 	}
+}
+
+void EventBridge::sendEmote(Player* player, uint32 emote)
+{
+	char	msg[1024];
+
+	sprintf(msg, "EMOTE|%llu|%lu\n", player->GetGUID(), emote);
+	this->sendMessage(msg);
 }
