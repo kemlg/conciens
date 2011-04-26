@@ -31,7 +31,7 @@
 ;		}
 
 (defn process-line [txt]
-  (println (str "Message: [" txt "]"))
+  (if (. txt startsWith "UNDEF") (println (str "Message: [" txt "]")))
 )
 
 (defn process-socket [sock]
@@ -50,7 +50,7 @@
   (. sock close)
 )
 
-;main
+;; main
 (defn main []
   (loop [ssin (ServerSocket. 6969) ssout (ServerSocket. 6970)]
     (if (. ssin isClosed)
