@@ -31,7 +31,7 @@
 ;		}
 
 (defn process-line [txt]
-  (if (. txt startsWith "UNDEF") (println (str "Message: [" txt "]")))
+  (if (. txt contains "UPDATE") () (println (str "Message: [" txt "]")))
 )
 
 (defn process-socket [sock]
