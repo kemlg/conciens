@@ -30,11 +30,24 @@
 ;			}
 ;		}
 
+(defn process-line [txt]
+  (println (str "Message: [" txt "]"))
+)
+
 (defn process-socket [sock]
   (println sock)
   (let [buf (BufferedReader. (InputStreamReader. (. sock getInputStream)))]
-    (apply println (line-seq buf))
+	  (loop [txt (. buf readLine)] 
+	    (if (nil? txt)
+	      (println "Closed!")
+	      (do
+	        (future (process-line txt))
+	        (recur (. buf readLine))
+	      )
+	    )
+	  )
   )
+  (. sock close)
 )
 
 ;main
@@ -50,5 +63,3 @@
     )
   )
 )
-
-(main)
