@@ -1,13 +1,17 @@
 package com.github.consciens.gameenactor;
 
+import java.io.IOException;
+
 import clojure.lang.RT;
 import clojure.lang.Var;
+
+
 
 public class GameBridge
 {
 	public static void main(String args[]) throws Exception
-	{
-        // Load the Clojure script -- as a side effect this initializes the runtime.
+	{        			
+		// Load the Clojure script -- as a side effect this initializes the runtime.
         RT.loadResourceScript("com/github/consciens/gameenactor/GameBridgeClj.clj");
  
         // Get a reference to the foo function.
@@ -16,5 +20,8 @@ public class GameBridge
         // Call it!
         Object result = foo.invoke();
         System.out.println(result);
+        
+        
+        
 	}
 }

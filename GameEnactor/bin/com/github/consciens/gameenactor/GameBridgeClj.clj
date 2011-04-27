@@ -2,8 +2,9 @@
 (import 
  '(java.net ServerSocket)
  '(java.io BufferedReader InputStreamReader)
- )
-
+ '(com.github.consciens.gameenactor EventBusJavaTest)  
+)
+;Java Code
 ;		ServerSocket	ssin, ssout;
 ;		Socket			sin ,sout;
 ;		InputStream		is;
@@ -30,8 +31,13 @@
 ;			}
 ;		}
 
+(def ebjt (new EventBusJavaTest))
+
 (defn process-line [txt]
-  (if (. txt contains "UPDATE") () (println (str "Message: [" txt "]")))
+    (if (. txt contains "UPDATE") 
+      ((. ebjt SubmitTestEvent txt)) 
+      (println (str "This is not an update: [" txt "]"))
+    )
 )
 
 (defn process-socket [sock]

@@ -5,5 +5,11 @@
 	<classpathentry kind="lib" path="clojure.jar" sourcepath="clojure-src.jar"/>
 	<classpathentry kind="lib" path="clojure-contrib.jar" sourcepath="clojure-contrib-src.jar"/>
 	<classpathentry kind="lib" path="classes"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/net.sf.ictalive.eventbus"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/net.sf.ictalive.monitoring"/>
+	<classpathentry kind="lib" path="/net.sf.ictalive.eventbus/lib/runtime.jar"/>
+	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/operetta.jar"/>
+	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
