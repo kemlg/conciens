@@ -26,6 +26,11 @@
         <pathelement location="org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
         <pathelement location="net.sf.ictalive.metamodel.utils.jar"/>
         <pathelement location="net.sf.ictalive.eventbus.jar"/>
+        <pathelement location="imq.jar"/>
+        <pathelement location="imqbroker.jar"/>
+        <pathelement location="imqjmx.jar"/>
+        <pathelement location="imqutil.jar"/>
+        <pathelement location="jms.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>

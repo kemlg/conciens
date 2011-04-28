@@ -15,5 +15,10 @@
 	<classpathentry kind="lib" path="org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
 	<classpathentry kind="lib" path="net.sf.ictalive.metamodel.utils.jar"/>
 	<classpathentry kind="lib" path="net.sf.ictalive.eventbus.jar"/>
+	<classpathentry kind="lib" path="imq.jar"/>
+	<classpathentry kind="lib" path="imqbroker.jar"/>
+	<classpathentry kind="lib" path="imqjmx.jar"/>
+	<classpathentry kind="lib" path="imqutil.jar"/>
+	<classpathentry kind="lib" path="jms.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
