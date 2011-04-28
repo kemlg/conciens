@@ -20,5 +20,16 @@
 	<classpathentry kind="lib" path="imqjmx.jar"/>
 	<classpathentry kind="lib" path="imqutil.jar"/>
 	<classpathentry kind="lib" path="jms.jar"/>
+	<classpathentry kind="lib" path="antlr-runtime-3.1.1.jar"/>
+	<classpathentry kind="lib" path="drools-api-5.0.1.jar"/>
+	<classpathentry kind="lib" path="drools-compiler-5.0.1.jar"/>
+	<classpathentry kind="lib" path="drools-core-5.0.1.jar"/>
+	<classpathentry kind="lib" path="mvel2-2.0.10.jar"/>
+	<classpathentry kind="lib" path="net.sf.ictalive.coordination_1.0.2.jar"/>
+	<classpathentry kind="lib" path="net.sf.ictalive.owls_1.0.1.jar"/>
+	<classpathentry kind="lib" path="net.sf.ictalive.rules_1.0.4.jar"/>
+	<classpathentry kind="lib" path="net.sf.ictalive.services_1.0.3.jar"/>
+	<classpathentry kind="lib" path="net.sf.ictalive.XSDSchema_1.0.0.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.jdt.core_3.5.2.v_981_R35x.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

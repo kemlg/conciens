@@ -31,6 +31,17 @@
         <pathelement location="imqjmx.jar"/>
         <pathelement location="imqutil.jar"/>
         <pathelement location="jms.jar"/>
+        <pathelement location="antlr-runtime-3.1.1.jar"/>
+        <pathelement location="drools-api-5.0.1.jar"/>
+        <pathelement location="drools-compiler-5.0.1.jar"/>
+        <pathelement location="drools-core-5.0.1.jar"/>
+        <pathelement location="mvel2-2.0.10.jar"/>
+        <pathelement location="net.sf.ictalive.coordination_1.0.2.jar"/>
+        <pathelement location="net.sf.ictalive.owls_1.0.1.jar"/>
+        <pathelement location="net.sf.ictalive.rules_1.0.4.jar"/>
+        <pathelement location="net.sf.ictalive.services_1.0.3.jar"/>
+        <pathelement location="net.sf.ictalive.XSDSchema_1.0.0.jar"/>
+        <pathelement location="org.eclipse.jdt.core_3.5.2.v_981_R35x.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
