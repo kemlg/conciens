@@ -11,5 +11,7 @@
 	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/operetta.jar"/>
 	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
 	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/net.sf.ictalive.metamodel.utils"/>
+	<classpathentry kind="lib" path="/net.sf.ictalive.monitoring/lib/norm-instances.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
