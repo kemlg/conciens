@@ -4,17 +4,69 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
-<project basedir="." default="build" name="GameEnactor">
+<project basedir="." default="build" name="GameDummy">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../../Applications/eclipse-old"/>
+    <property name="net.sf.ictalive.eventbus.location" value="../../../../../WIRE/Development/wire/net.sf.ictalive.eventbus"/>
+    <property name="net.sf.ictalive.monitoring.location" value="../../../../../WIRE/Development/wire/net.sf.ictalive.monitoring"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../usr/local/eclipse"/>
+    <property name="net.sf.ictalive.metamodel.utils.location" value="../../../../../WIRE/Development/wire/net.sf.ictalive.metamodel.utils"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
-    <path id="GameEnactor.classpath">
+    <path id="net.sf.ictalive.metamodel.utils.classpath">
+        <pathelement location="${net.sf.ictalive.metamodel.utils.location}/bin"/>
+        <pathelement location="${net.sf.ictalive.metamodel.utils.location}/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.metamodel.utils.location}/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.metamodel.utils.location}/lib/org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.metamodel.utils.location}/lib/org.eclipse.gmf.runtime.notation_1.2.0.v20090521-1925.jar"/>
+    </path>
+    <path id="net.sf.ictalive.eventbus.classpath">
+        <pathelement location="${net.sf.ictalive.eventbus.location}/bin"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/imq.jar"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/jms.jar"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/norm-instances.jar"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/runtime.jar"/>
+        <path refid="net.sf.ictalive.metamodel.utils.classpath"/>
+    </path>
+    <path id="net.sf.ictalive.monitoring.classpath">
+        <pathelement location="${net.sf.ictalive.monitoring.location}/bin"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/antlr-runtime-3.1.1.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/drools-api-5.0.1.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/drools-compiler-5.0.1.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/drools-core-5.0.1.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/mvel2-2.0.10.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/norm-instances.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/operetta.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/runtime.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/org.eclipse.jdt.core_3.5.2.v_981_R35x.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/net.sf.ictalive.coordination_1.0.2.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/net.sf.ictalive.owls_1.0.1.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/net.sf.ictalive.rules_1.0.4.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/net.sf.ictalive.services_1.0.3.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/net.sf.ictalive.XSDSchema_1.0.0.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/clojure.jar"/>
+        <path refid="net.sf.ictalive.metamodel.utils.classpath"/>
+        <path refid="net.sf.ictalive.eventbus.classpath"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/clojure-contrib.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/classes"/>
+    </path>
+    <path id="GameDummy.classpath">
         <pathelement location="bin"/>
         <pathelement location="clojure.jar"/>
         <pathelement location="clojure-contrib.jar"/>
         <pathelement location="classes"/>
+        <path refid="net.sf.ictalive.eventbus.classpath"/>
+        <path refid="net.sf.ictalive.monitoring.classpath"/>
+        <pathelement location="${net.sf.ictalive.eventbus.location}/lib/runtime.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/operetta.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/org.eclipse.emf.common_2.5.0.v200906151043.jar"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/org.eclipse.emf.ecore_2.5.0.v200906151043.jar"/>
+        <path refid="net.sf.ictalive.metamodel.utils.classpath"/>
+        <pathelement location="${net.sf.ictalive.monitoring.location}/lib/norm-instances.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -28,14 +80,34 @@
     <target name="clean">
         <delete dir="bin"/>
     </target>
-    <target depends="clean" name="cleanall"/>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${net.sf.ictalive.metamodel.utils.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${net.sf.ictalive.eventbus.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${net.sf.ictalive.monitoring.location}" inheritAll="false" target="clean"/>
+    </target>
     <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${net.sf.ictalive.metamodel.utils.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${net.sf.ictalive.eventbus.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${net.sf.ictalive.monitoring.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="GameEnactor.classpath"/>
+            <classpath refid="GameDummy.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -52,9 +124,14 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="EventBusJavaTest">
+        <java classname="com.github.consciens.gameenactor.EventBusJavaTest" failonerror="true" fork="yes">
+            <classpath refid="GameDummy.classpath"/>
+        </java>
+    </target>
     <target name="GameBridge">
         <java classname="com.github.consciens.gameenactor.GameBridge" failonerror="true" fork="yes">
-            <classpath refid="GameEnactor.classpath"/>
+            <classpath refid="GameDummy.classpath"/>
         </java>
     </target>
 </project>
