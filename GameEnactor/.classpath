@@ -31,5 +31,7 @@
 	<classpathentry kind="lib" path="net.sf.ictalive.services_1.0.3.jar"/>
 	<classpathentry kind="lib" path="net.sf.ictalive.XSDSchema_1.0.0.jar"/>
 	<classpathentry kind="lib" path="org.eclipse.jdt.core_3.5.2.v_981_R35x.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar"/>
+	<classpathentry kind="lib" path="org.eclipse.gmf.runtime.notation_1.2.0.v20090521-1925.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
