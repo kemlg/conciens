@@ -73,12 +73,16 @@ public class EventBusJavaBridge
 		
 		
 		Actor myActor = EventFactory.eINSTANCE.createActor();
+		/*
 		myActor.setName("WoWGameEnactor");
 		myActor.setUrl("alive.lsi.upc.edu");
+		*/
+		Key myKey = EventFactory.eINSTANCE.createKey();
+		myKey.setId(String.valueOf(System.currentTimeMillis()));
 		
 		ObserverView myView = EventFactory.eINSTANCE.createObserverView();
 		
-		
+		ev.setLocalKey(myKey);
 		ev.setAsserter(myActor);
 		ev.setPointOfView(myView);
 				
@@ -101,9 +105,9 @@ public class EventBusJavaBridge
 		}			
 		formula = formula.substring(0, formula.length() - ", ".length());
 		formula = formula + ")";
-		Key myKey = EventFactory.eINSTANCE.createKey();
-		myKey.setId(String.valueOf(formula));
-		ev.setLocalKey(myKey);
+		
+		myActor.setName(formula);
+		ev.setAsserter(myActor);
 		
 		sa.setSendMessage(ms);
 		
