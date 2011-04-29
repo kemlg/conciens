@@ -13,6 +13,7 @@ import net.sf.ictalive.operetta.OM.Norm;
 import net.sf.ictalive.operetta.OM.OMFactory;
 import net.sf.ictalive.operetta.OM.OMPackage;
 import net.sf.ictalive.runtime.event.Actor;
+import net.sf.ictalive.runtime.event.Cause;
 import net.sf.ictalive.runtime.event.Event;
 import net.sf.ictalive.runtime.event.EventFactory;
 import net.sf.ictalive.runtime.event.Key;
@@ -73,10 +74,9 @@ public class EventBusJavaBridge
 		
 		
 		Actor myActor = EventFactory.eINSTANCE.createActor();
-		/*
+		
 		myActor.setName("WoWGameEnactor");
 		myActor.setUrl("alive.lsi.upc.edu");
-		*/
 		Key myKey = EventFactory.eINSTANCE.createKey();
 		myKey.setId(String.valueOf(System.currentTimeMillis()));
 		
@@ -104,10 +104,15 @@ public class EventBusJavaBridge
 			formula = formula + splitted_text[i] + ", ";
 		}			
 		formula = formula.substring(0, formula.length() - ", ".length());
-		formula = formula + ")";
+		formula = formula + ")";	
 		
-		myActor.setName(formula);
-		ev.setAsserter(myActor);
+		Cause myCause = EventFactory.eINSTANCE.createCause();
+		Event Provev = EventFactory.eINSTANCE.createEvent();
+		Key ProvKey = EventFactory.eINSTANCE.createKey();
+		ProvKey.setId(formula);
+		Provev.setLocalKey(ProvKey);
+		myCause.setEvent(Provev);
+		ev.getProvenance().add(myCause);
 		
 		sa.setSendMessage(ms);
 		
