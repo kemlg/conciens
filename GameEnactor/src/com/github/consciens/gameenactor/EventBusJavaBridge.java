@@ -71,8 +71,6 @@ public class EventBusJavaBridge
 		ms = FactFactory.eINSTANCE.createMessage();
 		a = OMFactory.eINSTANCE.createAtom();
 		
-		Key myKey = EventFactory.eINSTANCE.createKey();
-		myKey.setId(String.valueOf(System.currentTimeMillis()));
 		
 		Actor myActor = EventFactory.eINSTANCE.createActor();
 		myActor.setName("WoWGameEnactor");
@@ -80,7 +78,7 @@ public class EventBusJavaBridge
 		
 		ObserverView myView = EventFactory.eINSTANCE.createObserverView();
 		
-		ev.setLocalKey(myKey);
+		
 		ev.setAsserter(myActor);
 		ev.setPointOfView(myView);
 				
@@ -93,12 +91,20 @@ public class EventBusJavaBridge
 		ct.setName(System.currentTimeMillis() + "");
 		a.getArguments().add(ct);
 		*/
+		String formula = splitted_text[0] + "(";
 		for (int i =1; i< splitted_text.length; i++)
 		{
 			ct = OMFactory.eINSTANCE.createConstant();
 			ct.setName(splitted_text[i]);
 			a.getArguments().add(ct);
-		}						
+			formula = formula + splitted_text[i] + ", ";
+		}			
+		formula = formula.substring(0, formula.length() - ", ".length());
+		formula = formula + ")";
+		Key myKey = EventFactory.eINSTANCE.createKey();
+		myKey.setId(String.valueOf(formula));
+		ev.setLocalKey(myKey);
+		
 		sa.setSendMessage(ms);
 		
 		try
