@@ -211,9 +211,8 @@
 (def combs (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces)))
 
 (defn run-thread [a b c]
-  (println "run-thread: " (connection))
   (future (get-wowhead a b c)))
 
 (clojure.contrib.sql/with-connection
   db
-  (dorun (map #(apply run-thread %) combs)))
+  (dorun (map deref (doall (map #(apply run-thread %) combs)))))
