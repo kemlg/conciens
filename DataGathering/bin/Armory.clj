@@ -2,7 +2,8 @@
   (:require [clojure.contrib.logging :as log])
   (:require [clojure.contrib.string :as st])
   (require [clojure.contrib.duck-streams])
-  (:use [clojure.contrib.sql] )
+  (:use [clojure.contrib.sql])
+  (:require [clojure.contrib.sql :as sql])
   (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))
