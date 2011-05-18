@@ -214,5 +214,4 @@
 
 (clojure.contrib.sql/with-connection
   db
-  (println (sql/connection))
   (dorun (map #(apply run-thread %) combs)))
