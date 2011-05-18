@@ -11,7 +11,7 @@
         '(java.lang StringBuilder)
         '(java.io BufferedReader InputStreamReader ByteArrayInputStream))
 
-(def db (load "./contrib/config"))
+(def db (load-file "./contrib/config.clj"))
 
 (defn fetch-url
   "Return the web page as a string."
@@ -161,12 +161,7 @@
 (defn store-in [x cl race]
 (println x cl race)
 (try
-   (clojure.contrib.sql/with-connection
-   db
-   ;(clojure.contrib.sql/transaction
-     (execute-player x cl race)
-   ;)
-   )
+   (execute-player x cl race)
    (catch Exception e
      (println "Error when parsing" e))))
 
@@ -194,8 +189,8 @@
       (lazy-seq (step v-original-seqs)))))
 
 (def vlimits (vector 0 50 100 150))
-(def vclasses (vector 2 3 4 5 6 7 8 9 11)) ;-- Falta 1
-(def vraces (vector 2 3 4 5 6 7 8 9 10 11 22)) ;-- Falta 1
+(def vclasses (vector 3 4 5 6 7 8 9 11 1 2)) ;-- Falta 1
+(def vraces (vector 3 4 5 6 7 8 9 10 11 22 1 2)) ;-- Falta 1
 
 (defn get-wowhead [limit cl race]
   (println limit cl race)
@@ -212,5 +207,9 @@
 
 (def combs (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces)))
 
-(dorun (map #(apply get-wowhead %) combs))
+(defn run-thread [a b c]
+  (future (get-wowhead a b c)))
 
+(clojure.contrib.sql/with-connection
+  db
+  (dorun (map #(apply run-thread %) combs)))
