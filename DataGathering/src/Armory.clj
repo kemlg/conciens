@@ -215,4 +215,5 @@
 
 (clojure.contrib.sql/with-connection
   db
-  (dorun (map deref (doall (map #(apply run-thread %) combs)))))
+  (dorun (map deref (doall (map #(apply run-thread %) combs))))
+  (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!"))
