@@ -194,7 +194,7 @@
 (def vraces (vector 3 4 5 6 7 8 9 10 11 22 1 2)) ;-- Falta 1
 
 (defn get-wowhead [limit cl race]
-  (println (sql/connection))
+;  (println (sql/connection))
   (println limit cl race)
   (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
     (println "Reading " url)
