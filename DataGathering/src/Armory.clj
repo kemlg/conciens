@@ -199,7 +199,7 @@
   (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
     (println "Reading " url)
     (try
-      (println "get-wowhead: " (connection))
+      (println "get-wowhead: " (find-connection))
       (dorun (map #(store-in % cl race) (mapa url)))
       (catch Exception e (println e)))))
 
@@ -213,11 +213,7 @@
 (defn run-thread [a b c]
   (future (get-wowhead a b c)))
 
-;(clojure.contrib.sql/with-connection
-;  db
-
-(sql/get-connection db)
-
+(clojure.contrib.sql/with-connection
+  db
   (dorun (map deref (doall (map #(apply run-thread %) combs))))
-  (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
-;)
+  (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!"))
