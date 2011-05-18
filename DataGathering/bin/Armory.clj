@@ -197,11 +197,11 @@
 ;  (println (sql/connection))
   (println limit cl race)
   (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
-    (println (sql/connection))
     (println "Reading " url)
     (try
-    (dorun (map #(store-in % cl race) (mapa url)))
-    (catch Exception e (println e)))))
+      (println "get-wowhead: " (connection))
+      (dorun (map #(store-in % cl race) (mapa url)))
+      (catch Exception e (println e)))))
 
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:0"))
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:50"))
@@ -211,6 +211,7 @@
 (def combs (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces)))
 
 (defn run-thread [a b c]
+  (println "run-thread: " (connection))
   (future (get-wowhead a b c)))
 
 (clojure.contrib.sql/with-connection
