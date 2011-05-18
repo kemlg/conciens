@@ -198,6 +198,7 @@
   (println limit cl race)
   (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
     (println "Reading " url)
+    (println (sql/connection))
     (try
     (dorun (map #(store-in % cl race) (mapa url)))
     (catch Exception e (println e)))))
