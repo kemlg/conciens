@@ -213,6 +213,11 @@
 (defn run-thread [a b c]
   (future (get-wowhead a b c)))
 
-(clojure.contrib.sql/with-connection
-  db
-  (dorun (map deref (doall (map #(apply run-thread %) combs)))))
+;(clojure.contrib.sql/with-connection
+;  db
+
+(get-connection db)
+
+  (dorun (map deref (doall (map #(apply run-thread %) combs))))
+  (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
+;)
