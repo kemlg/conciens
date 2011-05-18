@@ -1,10 +1,9 @@
 (ns Armory
-
   (:require [clojure.contrib.logging :as log])
   (:require [clojure.contrib.string :as st])
   (require [clojure.contrib.duck-streams])
-   (:use [clojure.contrib.sql] )
-   (:import (java.sql DriverManager))
+  (:use [clojure.contrib.sql] )
+  (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))
 
@@ -22,27 +21,6 @@
       (let [buf (BufferedReader. (InputStreamReader. stream))]
         (apply str (line-seq buf))))))
 
-(defn parse-page
-  [page-src]
-  (try
-   (when page-src
-     (let [cleaner (new HtmlCleaner)]
-       (doto (.getProperties cleaner) ;; set HtmlCleaner properties
-         (.setOmitComments true)
-         (.setPruneTags "script,style"))
-       (when-let [node (.clean cleaner page-src)]
-         {:title   (when-let [title (.findElementByName node "title", true)]
-                     (-> title
-                         (.getText)
-                         (str)
-                         (StringEscapeUtils/unescapeHtml)))
-          :content (-> node
-                       (.getText)
-                       (str)
-                       (StringEscapeUtils/unescapeHtml))})))
-   (catch Exception e
-     (log/error "Error when parsing" e))))
-
 (defn html-xml
   "Given the HTML source of a web page, parses it and returns the :title
    and the tag-stripped :content of the page. Does not do any encoding
@@ -58,42 +36,29 @@
    (catch Exception e
      (log/error "Error when parsing" e))))
 
-(defn get-body [s] (filter #(= :body (get % :tag)) (:content (first s))) )
+(defn get-body [s]
+  (filter #(= :body (get % :tag)) (:content (first s))) )
 
 (defn get-data [s]
-  (map #(get % :tag) (:content (first (get-body s))))
-)
+  (map #(get % :tag) (:content (first (get-body s)))))
 
 (defn find-map [text]
-(+ 20 (.
-  text
-  indexOf "hideCount: 1, data:"))
-)
+  (+ 20 (. text indexOf "hideCount: 1, data:")))
 
 (defn find-end [text]
-  (- (.
-  text
-  indexOf ";myTabs.flush()") 2)
-)
-;;myTabs.flush()
+  (- (. text indexOf ";myTabs.flush()") 2))
 
 (defn extract-json [text]
-(
-  . text
-  substring 
-(find-map text
-)
-(find-end text)
-)
-)
+  (. text substring 
+    (find-map text)
+    (find-end text)))
 
 (defn extract-fields [txt idx]
   (def a (. txt indexOf "'" idx))
   (def b (. txt indexOf "'" (+ 1 a)))
   (def c (+ 11 (. txt indexOf ",realmname:'" idx)))
   (def d (. txt indexOf "',battlegroup:" idx))
-  (list (. txt substring (+ 1 a) b) (. txt substring (+ 1 c) d))
-)
+  (list (. txt substring (+ 1 a) b) (. txt substring (+ 1 c) d)))
 
 (defn get-map [json]
 (map #(extract-fields json %)
@@ -101,12 +66,7 @@
   (if (= ct -1)
     (seq s)
     (do
-      (recur (. json indexOf ",name:" (+ 1 ct)) (cons ct s))
-    )
-  )
-)
-)
-)
+      (recur (. json indexOf ",name:" (+ 1 ct)) (cons ct s)))))))
 
 (defn create-url [nombre reino apartado codigo]
   (str
@@ -117,8 +77,7 @@
     "/"
     apartado
     "/"
-    codigo)
-)
+    codigo))
 
 (def achi (vector 92
                 96 14861 15081 14862 14863 15070
@@ -131,22 +90,17 @@
                 ;; Dejamos los feats of strength fuera: 81))
 
 (defn bajar-url [lista apartado codigo]
-  (create-url (first lista) (second lista) apartado codigo)
-)
+  (create-url (first lista) (second lista) apartado codigo))
 
 ; (apply bajar-url (first mapa) "achievement" achi)
 
 (defn get-list [txt]
-(:content (second (rest (:content (first (:content (first (second (second (rest (second (:content txt))))))))))))
-)
+  (:content (second (rest (:content (first (:content (first (second (second (rest (second (:content txt)))))))))))))
 
 (defn extract-achievement [li]
   (if (not (. (:class (:attrs li)) contains "locked"))
     (do
-      (first (:content (first (:content (first (:content li))))))
-    )
-  )
-)
+      (first (:content (first (:content (first (:content li)))))))))
 
 ;(map #((clojure.xml/parse (new ByteArrayInputStream (.getBytes (html-xml (fetch-url %))))))
 
@@ -161,21 +115,12 @@
                (html-xml
                  (do
 ;                   (println "fetching" url)
-                   (fetch-url url)
-                 )
-               )
-             )
-           )
-        )
-      )
-    )
-  )
+                   (fetch-url url)))))))))
   (catch NullPointerException e (println url)))
 )
 
 (defn notnil? [x]
-  (not (nil? x))
-)
+  (not (nil? x)))
 
 (defn insert-player
   [nombre reino cl race]
@@ -200,8 +145,7 @@
       :achievements_players
       [:achievement_id :player_id]
       [(:id (first rs)) id])
-    (catch Exception e)))
-)
+    (catch Exception e))))
 
 (defn execute-player [p cl race]
   (println p cl race)
@@ -212,8 +156,7 @@
   (println (str "select id from players where name = '" (first p) "' and realm = '" (second p) "'"))
   (with-query-results rs [(str "select id from players where name = '" (first p) "' and realm = '" (second p) "'")] 
     (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (map descarga (map #(bajar-url p "achievement" %) achi))))))
-  (catch Exception e (println e)))
-)
+  (catch Exception e (println e))))
 
 (defn store-in [x cl race]
 (println x cl race)
@@ -225,13 +168,11 @@
    ;)
    )
    (catch Exception e
-     (println "Error when parsing" e)))
-)
+     (println "Error when parsing" e))))
 
 (defn mapa [txt]
-(get-map (extract-json (fetch-url
-  txt
-))))
+(get-map (extract-json
+  (fetch-url txt))))
 
 (defn cartesian-product
   "All the ways to take one item from each sequence"
@@ -262,9 +203,7 @@
     (println "Reading " url)
     (try
     (dorun (map #(store-in % cl race) (mapa url)))
-    (catch Exception e (println e)))
-  )
-)
+    (catch Exception e (println e)))))
 
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:0"))
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:50"))
