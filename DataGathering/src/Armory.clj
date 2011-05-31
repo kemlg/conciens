@@ -216,8 +216,8 @@
   (future (get-wowhead a b c)))
 
 (defn execute-multithread [x]
-  (doall (map deref (doall
+  (dorun (map deref (dorun
     (map #(apply run-thread %) x)))))
 
-(doall (map execute-multithread (partition-all 5 combs)))
+(dorun (map execute-multithread (partition-all 5 combs)))
 (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
