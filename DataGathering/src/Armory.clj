@@ -142,7 +142,7 @@
 
 (defn insert-achievement
   [id,ach]
-  ;(println ach)
+  (println ach)
   (try
   (clojure.contrib.sql/insert-values
    :achievements
@@ -166,7 +166,7 @@
   (try
   (println (str "select id from players where name = '" (first p) "' and realm = '" (second p) "'"))
   (with-query-results rs [(str "select id from players where name = '" (first p) "' and realm = '" (second p) "'")] 
-    (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (map descarga (map #(bajar-url p "achievement" %) achi))))))
+    (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi)))))))
   (catch Exception e (println e))))
 
 (defn store-in [x cl race]
@@ -213,7 +213,7 @@
     (try
       (println "get-wowhead: " (find-connection))
       (dorun (map #(store-in % cl race) (mapa url)))
-      (catch Exception e (println e))))))
+      (catch Exception e (println e) (println (. e printStackTrace)))))))
 
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:0"))
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:50"))
