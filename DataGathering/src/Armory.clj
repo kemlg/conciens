@@ -210,7 +210,7 @@
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:100"))
 ;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:150"))
 
-(def combs (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces)))
+(def combs (shuffle (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces))))
 
 (defn run-thread [a b c]
   (future (get-wowhead a b c)))
