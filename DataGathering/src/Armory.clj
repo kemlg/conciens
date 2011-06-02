@@ -44,12 +44,15 @@
   (map #(get % :tag) (:content (first (get-body s)))))
 
 (defn find-map [text]
-  (+ 20 (. text indexOf "hideCount: 1, data:")))
+  (+ 20 (. text indexOf "_truncated: 1, data:")))
 
 (defn find-end [text]
-  (- (. text indexOf ";myTabs.flush()") 2))
+  (+ (. text indexOf "}]});") 2))
 
 (defn extract-json [text]
+  (println (find-map text))
+  (println (find-end text))
+  
   (. text substring 
     (find-map text)
     (find-end text)))
@@ -167,8 +170,8 @@
      (println "Error when parsing" e))))
 
 (defn mapa [txt]
-(get-map (extract-json
-  (fetch-url txt))))
+  (get-map (extract-json
+    (fetch-url txt))))
 
 (defn cartesian-product
   "All the ways to take one item from each sequence"
@@ -219,5 +222,11 @@
   (dorun (map deref (dorun
     (map #(apply run-thread %) x)))))
 
-(dorun (map execute-multithread (partition-all 5 combs)))
-(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
+;(dorun (map execute-multithread (partition-all 5 combs)))
+;(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
+
+(get-wowhead 50 5 9)
+
+
+
+
