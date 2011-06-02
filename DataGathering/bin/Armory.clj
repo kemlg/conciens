@@ -190,8 +190,8 @@
       (lazy-seq (step v-original-seqs)))))
 
 (def vlimits (vector 0 50 100 150))
-(def vclasses (vector 9 11 1 2 3 4 5 6 7 8)) ;-- Falta 1
-(def vraces (vector 9 10 11 22 1 2 3 4 5 6 7 8)) ;-- Falta 1
+(def vclasses (vector 4 5 6 7 8 9 11 1 2 3)) ;-- Falta 1
+(def vraces (vector 22 1 2 3 4 5 6 7 8 9 10 11 )) ;-- Falta 1
 
 (defn get-wowhead [limit cl race]
 ;  (println (sql/connection))
