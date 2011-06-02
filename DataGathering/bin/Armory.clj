@@ -222,10 +222,10 @@
   (dorun (map deref (dorun
     (map #(apply run-thread %) x)))))
 
-;(dorun (map execute-multithread (partition-all 5 combs)))
+(dorun (map execute-multithread (partition-all 5 combs)))
 ;(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
 
-(get-wowhead 50 5 9)
+;(get-wowhead 50 5 9)
 
 
 
