@@ -102,24 +102,31 @@
   (:content (second (rest (:content (first (:content (first (second (second (rest (second (:content txt)))))))))))))
 
 (defn extract-achievement [li]
+  ;(println li)
   (if (not (. (:class (:attrs li)) contains "locked"))
     (do
       (first (:content (first (:content (first (:content li)))))))))
 
 ;(map #((clojure.xml/parse (new ByteArrayInputStream (.getBytes (html-xml (fetch-url %))))))
 
-(defn descarga [url]
-  (try
-  (extract-achievement
-    (first
-      (get-list
+(defn get-xml-url [url]
         (clojure.xml/parse 
           (new ByteArrayInputStream 
              (.getBytes
                (html-xml
                  (do
-;                   (println "fetching" url)
-                   (fetch-url url)))))))))
+                   (println "fetching" url)
+                   (fetch-url url))))))
+)
+
+(defn descarga [url]
+  (try
+  (map extract-achievement
+    ;(first
+      (get-list
+        (get-xml-url url)
+    ;)
+    ))
   (catch NullPointerException e (println url)))
 )
 
@@ -224,6 +231,8 @@
 
 (dorun (map execute-multithread (partition-all 5 combs)))
 ;(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
+
+;(descarga "http://eu.battle.net/wow/en/character/wildhammer/apphia/achievement/92")
 
 ;(get-wowhead 50 5 9)
 
