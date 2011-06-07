@@ -122,10 +122,10 @@
 (defn descarga [url]
   (try
   (map extract-achievement
-    ;(first
+    (first
       (get-list
         (get-xml-url url)
-    ;)
+    )
     ))
   (catch NullPointerException e (println url)))
 )
