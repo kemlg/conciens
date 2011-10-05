@@ -72,16 +72,15 @@
     (do
       (recur (. json indexOf ",name:" (+ 1 ct)) (cons ct s)))))))
 
-(defn create-url [nombre reino apartado codigo]
+(defn create-base-url [nombre reino]
   (str
     "http://eu.battle.net/wow/en/character/"
     (. (. reino toLowerCase) replaceAll " " "-")
     "/"
-    (. nombre toLowerCase)
-    "/"
-    apartado
-    "/"
-    codigo))
+    (. nombre toLowerCase)))
+
+(defn create-url [base apartado codigo]
+  (str base "/" apartado "/" codigo))
 
 (def achi (vector 92
                 96 14861 15081 14862 14863 15070
@@ -94,7 +93,7 @@
                 ;; Dejamos los feats of strength fuera: 81))
 
 (defn bajar-url [lista apartado codigo]
-  (create-url (first lista) (second lista) apartado codigo))
+  (create-url (create-base-url (first lista) (second lista)) apartado codigo))
 
 ; (apply bajar-url (first mapa) "achievement" achi)
 
@@ -170,11 +169,11 @@
   (catch Exception e (println e))))
 
 (defn store-in [x cl race]
-(println x cl race)
-(try
-   (execute-player x cl race)
-   (catch Exception e
-     (println "Error when parsing" e))))
+  (println x cl race)
+  (try
+    (execute-player x cl race)
+    (catch Exception e
+      (println "Error when parsing" e))))
 
 (defn mapa [txt]
   (get-map (extract-json
