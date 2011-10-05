@@ -40,12 +40,14 @@
                 ;; Dejamos los feats of strength fuera: 81))
 
 (defn bajar-url [lista apartado codigo]
-  (create-url (create-base-url (first lista) (second lista)) apartado codigo))
+  (create-url (:url lista) apartado codigo))
 
 ; (apply bajar-url (first mapa) "achievement" achi)
 
 (defn get-list [txt]
-  (:content (second (rest (:content (first (:content (first (second (second (rest (second (:content txt)))))))))))))
+  ;(println (:content (nth (:content (first (:content (first (:content (second (:content txt))))))) 2)))
+  ;(:content (second (rest (:content (first (:content (first (second (second (rest (second (:content txt)))))))))))))
+  (:content (nth (:content (first (:content (first (:content (second (:content txt))))))) 2)))
 
 (defn extract-achievement [li]
   ;(println li)
@@ -57,36 +59,52 @@
 
 (defn descarga [url]
   (try
-  (map extract-achievement
-    (first
+    (map extract-achievement
       (get-list
-        (get-xml-url url)
-    )
-    ))
-  (catch NullPointerException e (println url)))
-)
+        (get-xml-url url)))
+    (catch NullPointerException e (println url))))
 
 (defn notnil? [x]
   (not (nil? x)))
 
+(defn insert-race
+  [r]
+  (clojure.contrib.sql/insert-values
+   :races
+   [:name]
+   [r]))
+
+(defn insert-realm
+  [r b]
+  (clojure.contrib.sql/insert-values
+   :realms
+   [:name :battlegroup]
+   [r b]))
+
+(defn insert-class
+  [c s]
+  (clojure.contrib.sql/insert-values
+   :classes
+   [:name :spec]
+   [c s]))
+
 (defn insert-player
-  [nombre reino cl race]
+  [p]
   (clojure.contrib.sql/insert-values
    :players
-   [:name :realm :id_class :id_race]
-   [nombre (. reino replaceAll "'" "\\'") cl race]))
+   (keys p)
+   (vals p)))
 
 (defn insert-achievement
   [id,ach]
-  (println ach)
   (try
   (clojure.contrib.sql/insert-values
    :achievements
    [:name]
-   [(. ach replaceAll "'" "\\'")])
+   [ach])
     (catch Exception e))
-  (println (str "select id from achievements where name = '" (. ach replaceAll "'" "''") "'"))
-  (with-query-results rs [(str "select id from achievements where name = '" (. ach replaceAll "'" "''") "'")]
+  (println (str "player " id ": select id from achievements where name = \"" ach "\""))
+  (with-query-results rs [(str "select id from achievements where name = \"" ach "\"")]
     (try
     (clojure.contrib.sql/insert-values
       :achievements_players
@@ -94,16 +112,25 @@
       [(:id (first rs)) id])
     (catch Exception e))))
 
-(defn execute-player [p cl race]
-  (println p cl race)
+(defn execute-player [p]
+  (println p (:class p) (:race p))
   (try
-  (insert-player (first p) (second p) cl race)
-  (catch Exception e (println e)))
+    (insert-realm (:realm p) (:battlegroup p))
+    (catch Exception e (println e)))
   (try
-  (println (str "select id from players where name = '" (first p) "' and realm = '" (second p) "'"))
-  (with-query-results rs [(str "select id from players where name = '" (first p) "' and realm = '" (second p) "'")] 
-    (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi)))))))
-  (catch Exception e (println e))))
+    (insert-class (:class p) (:spec p))
+    (catch Exception e (println e)))
+  (try
+    (insert-race (:race p))
+    (catch Exception e (println e)))
+  (try
+    (insert-player p)
+    (catch Exception e (println e)))
+  (try
+    (println (str "select id from players where name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\""))
+    (with-query-results rs [(str "select id from players where name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\"")] 
+      (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi)))))))
+    (catch Exception e (println e))))
 
 
 
