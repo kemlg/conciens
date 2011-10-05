@@ -32,3 +32,4 @@ test-output
 # syntax: regexp
 # ^\.pc/
 config.clj
+passwd.clj
