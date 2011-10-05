@@ -3,6 +3,7 @@
   (:require [clojure.contrib.string :as st])
   (require [clojure.contrib.duck-streams])
   (:use [clojure.contrib.sql])
+  (:use Utilities)
   (:require [clojure.contrib.sql :as sql])
   (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
@@ -12,76 +13,21 @@
         '(java.lang StringBuilder)
         '(java.io BufferedReader InputStreamReader ByteArrayInputStream))
 
-(def db (load-file "./contrib/config.clj"))
-
-(defn fetch-url
-  "Return the web page as a string."
-  [address]
-  (let [url (URL. address)]
-    (with-open [stream (. url (openStream))]
-      (let [buf (BufferedReader. (InputStreamReader. stream))]
-        (apply str (line-seq buf))))))
-
-(defn html-xml
-  "Given the HTML source of a web page, parses it and returns the :title
-   and the tag-stripped :content of the page. Does not do any encoding
-   detection, it is expected that this has already been done."
-  [page-src]
-  (try
-   (when page-src
-     (let [cleaner (new HtmlCleaner)]
-       (doto (.getProperties cleaner) ;; set HtmlCleaner properties
-         (.setOmitComments true)
-         (.setPruneTags "script,style"))
-       (. (new SimpleXmlSerializer (. cleaner getProperties)) getAsString (.clean cleaner page-src))))
-   (catch Exception e
-     (log/error "Error when parsing" e))))
-
 (defn get-body [s]
   (filter #(= :body (get % :tag)) (:content (first s))) )
 
 (defn get-data [s]
   (map #(get % :tag) (:content (first (get-body s)))))
 
-(defn find-map [text]
-  (+ 20 (. text indexOf "_truncated: 1, data:")))
-
-(defn find-end [text]
-  (+ (. text indexOf "}]});") 2))
-
-(defn extract-json [text]
-  (println (find-map text))
-  (println (find-end text))
-  
-  (. text substring 
-    (find-map text)
-    (find-end text)))
-
-(defn extract-fields [txt idx]
-  (def a (. txt indexOf "'" idx))
-  (def b (. txt indexOf "'" (+ 1 a)))
-  (def c (+ 11 (. txt indexOf ",realmname:'" idx)))
-  (def d (. txt indexOf "',battlegroup:" idx))
-  (list (. txt substring (+ 1 a) b) (. txt substring (+ 1 c) d)))
-
-(defn get-map [json]
-(map #(extract-fields json %)
-(loop [ct (. json indexOf ",name:") s nil]
-  (if (= ct -1)
-    (seq s)
-    (do
-      (recur (. json indexOf ",name:" (+ 1 ct)) (cons ct s)))))))
-
-(defn create-url [nombre reino apartado codigo]
+(defn create-base-url [nombre reino]
   (str
     "http://eu.battle.net/wow/en/character/"
     (. (. reino toLowerCase) replaceAll " " "-")
     "/"
-    (. nombre toLowerCase)
-    "/"
-    apartado
-    "/"
-    codigo))
+    (. nombre toLowerCase)))
+
+(defn create-url [base apartado codigo]
+  (str base "/" apartado "/" codigo))
 
 (def achi (vector 92
                 96 14861 15081 14862 14863 15070
@@ -94,7 +40,7 @@
                 ;; Dejamos los feats of strength fuera: 81))
 
 (defn bajar-url [lista apartado codigo]
-  (create-url (first lista) (second lista) apartado codigo))
+  (create-url (create-base-url (first lista) (second lista)) apartado codigo))
 
 ; (apply bajar-url (first mapa) "achievement" achi)
 
@@ -108,16 +54,6 @@
       (first (:content (first (:content (first (:content li)))))))))
 
 ;(map #((clojure.xml/parse (new ByteArrayInputStream (.getBytes (html-xml (fetch-url %))))))
-
-(defn get-xml-url [url]
-        (clojure.xml/parse 
-          (new ByteArrayInputStream 
-             (.getBytes
-               (html-xml
-                 (do
-                   (println "fetching" url)
-                   (fetch-url url))))))
-)
 
 (defn descarga [url]
   (try
@@ -169,72 +105,6 @@
     (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi)))))))
   (catch Exception e (println e))))
 
-(defn store-in [x cl race]
-(println x cl race)
-(try
-   (execute-player x cl race)
-   (catch Exception e
-     (println "Error when parsing" e))))
-
-(defn mapa [txt]
-  (get-map (extract-json
-    (fetch-url txt))))
-
-(defn cartesian-product
-  "All the ways to take one item from each sequence"
-  [& seqs]
-  (let [v-original-seqs (vec seqs)
-	step
-	(fn step [v-seqs]
-	  (let [increment
-		(fn [v-seqs]
-		  (loop [i (dec (count v-seqs)), v-seqs v-seqs]
-		    (if (= i -1) nil
-			(if-let [rst (next (v-seqs i))]
-			  (assoc v-seqs i rst)
-			  (recur (dec i) (assoc v-seqs i (v-original-seqs i)))))))]
-	    (when v-seqs
-	       (cons (map first v-seqs)
-		     (lazy-seq (step (increment v-seqs)))))))]
-    (when (every? first seqs)
-      (lazy-seq (step v-original-seqs)))))
-
-(def vlimits (vector 0 50 100 150))
-(def vclasses (vector 4 5 6 7 8 9 11 1 2 3)) ;-- Falta 1
-(def vraces (vector 22 1 2 3 4 5 6 7 8 9 10 11 )) ;-- Falta 1
-
-(defn get-wowhead [limit cl race]
-;  (println (sql/connection))
-(clojure.contrib.sql/with-connection
-  db
-  (println limit cl race)
-  (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
-    (println "Reading " url)
-    (try
-      (println "get-wowhead: " (find-connection))
-      (dorun (map #(store-in % cl race) (mapa url)))
-      (catch Exception e (println e) (println (. e printStackTrace)))))))
-
-;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:0"))
-;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:50"))
-;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:100"))
-;(map store-in (mapa "http://www.wowhead.com/profiles=eu?filter=cl=2;ra=1;minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:150"))
-
-(def combs (shuffle (map flatten (cartesian-product (cartesian-product vlimits vclasses) vraces))))
-
-(defn run-thread [a b c]
-  (future (get-wowhead a b c)))
-
-(defn execute-multithread [x]
-  (dorun (map deref (dorun
-    (map #(apply run-thread %) x)))))
-
-(dorun (map execute-multithread (partition-all 5 combs)))
-;(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
-
-;(descarga "http://eu.battle.net/wow/en/character/wildhammer/apphia/achievement/92")
-
-;(get-wowhead 50 5 9)
 
 
 
