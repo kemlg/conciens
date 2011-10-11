@@ -33,3 +33,4 @@ test-output
 # ^\.pc/
 config.clj
 passwd.clj
+bin/
