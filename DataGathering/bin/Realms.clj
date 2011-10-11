@@ -34,7 +34,7 @@
   (sql/with-connection db
     (sql/update-values
       :realms
-      ["name=? and continent=?" (:realm m) continent]
+      ["name=? and continent=? and language='EN'" (:realm m) continent]
       (dissoc m :realm))))
 
 (defn update-realms [continent]

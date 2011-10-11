@@ -25,7 +25,7 @@
 
 (sql/with-connection 
   db
-  (with-query-results rs ["SELECT r.name, r.battlegroup, p.url FROM realms r, players p WHERE r.name = p.realm AND r.battlegroup = p.battlegroup GROUP BY r.name, r.battlegroup;"]
+  (with-query-results rs ["SELECT r.name, r.battlegroup, p.url FROM realms r, players p WHERE r.name = p.realm AND r.battlegroup = p.battlegroup AND r.language = 'EN' GROUP BY r.name, r.battlegroup;"]
     (doall (map set-continent rs))))
 
 
