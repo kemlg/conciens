@@ -5,6 +5,8 @@
   (:use [clojure.contrib.sql])
   (:use Utilities)
   (:require [clojure.contrib.sql :as sql])
+  (:require [clojure.pprint :as pp])
+  (:use clojure.stacktrace)
   (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))
@@ -95,41 +97,54 @@
    (keys p)
    (vals p)))
 
+(defn complete-player
+  [id]
+  (clojure.contrib.sql/update-values
+   :players
+   ["id=?" id]
+   {:complete 1}))
+
 (defn insert-achievement
   [id,ach]
-  (try
-  (clojure.contrib.sql/insert-values
-   :achievements
-   [:name]
-   [ach])
-    (catch Exception e))
-  (println (str "player " id ": select id from achievements where name = \"" ach "\""))
-  (with-query-results rs [(str "select id from achievements where name = \"" ach "\"")]
+  ;(try
+  ;  (clojure.contrib.sql/insert-values
+  ;    :achievements
+  ;    [:name]
+  ;    [(. ach replaceAll "\"" "\\\"")])
+  ;    (catch Exception e))
+  ;(println (str "player " id ": select id from achievements where name = \"" (. ach replaceAll "\"" "\\\\\"") "\""))
+  ;(println (. ach replaceAll "\"" "\\\\\""))
+  ;(with-query-results rs [(str "select id from achievements where name = \"" (. ach replaceAll "\"" "\\\\\"") "\"")]
     (try
-    (clojure.contrib.sql/insert-values
-      :achievements_players
-      [:achievement_id :player_id]
-      [(:id (first rs)) id])
-    (catch Exception e))))
+      ;(println (str "inserting " id ":" ach))
+      (clojure.contrib.sql/insert-values
+        :achievements_players
+        [:achievement :player_id]
+        [(. ach replaceAll "\"" "\\\\\"") id])
+      (catch Exception e (print-stack-trace e))))
+  ;)
 
 (defn execute-player [p]
-  (println p (:class p) (:race p))
+  ;(println p (:class p) (:race p))
   (try
     (insert-realm (:realm p) (:battlegroup p))
-    (catch Exception e (println e)))
+    (catch Exception e (comment (println e))))
   (try
     (insert-class (:class p) (:spec p))
-    (catch Exception e (println e)))
+    (catch Exception e (comment (println e))))
   (try
     (insert-race (:race p))
-    (catch Exception e (println e)))
+    (catch Exception e (comment (println e))))
   (try
     (insert-player p)
     (catch Exception e (println e)))
   (try
-    (println (str "select id from players where name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\""))
-    (with-query-results rs [(str "select id from players where name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\"")] 
-      (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi)))))))
+    ;(println (str "select id from players where complete = 0 and name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\""))
+    (with-query-results rs [(str "select id from players where complete = 0 and name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\"")] 
+      (if (not (empty? rs))
+        (do
+          (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi))))))
+          (complete-player (:id (first rs))))))
     (catch Exception e (println e))))
 
 

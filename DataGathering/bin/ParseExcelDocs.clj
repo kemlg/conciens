@@ -12,7 +12,7 @@
 
 (load-file "./contrib/passwd.clj")
 
-(println "Starting...")
+;(println "Starting...")
 
 (def feed (. spread_client getFeed (URL. "https://spreadsheets.google.com/feeds/spreadsheets/private/full") SpreadsheetFeed) )
 
@@ -26,10 +26,10 @@
 
 (defn work-sheet-treatment [we]
   (hash-map 
-    :name(. (. we getTitle) getPlainText)
+    :name (. (. we getTitle) getPlainText)
     :row-count (. we getRowCount)
     :col-count (. we getColCount)
-    :content (map cell-treatment (. (. spread_client getFeed (. we getCellFeedUrl) CellFeed) getEntries ))
+    :content (partition-by :row (map cell-treatment (. (. spread_client getFeed (. we getCellFeedUrl) CellFeed) getEntries )))
   )
 )
 
@@ -44,9 +44,10 @@
 )
 
 (defn google-docs-treatment []
-  (pprint (map spread-sheet-treatment (. feed getEntries)))  
-  )
+  ;(pprint
+  (map spread-sheet-treatment (. feed getEntries)))  
+ ; )
 
-(google-docs-treatment)
+;(google-docs-treatment)
 
-(println "Ending...")
+;(println "Ending...")
