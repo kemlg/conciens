@@ -70,14 +70,15 @@
                 :id (:id %) :name (:name %) :race (:race %) :class (:class %) :type (:type %) :language (:language %) :population (:population %) :realm (:realm %) :mapa {}) 
              rs)))))
 
-(duck/spit "/tmp/lala.csv"
+(defn get-csv []
+  (duck/spit "/tmp/lala.csv"
            (apply str (doall (interpose ","
                       (concat (list "id" "name" "race" "class"  "type" "language" "population" "realm" "num") (get-achievements-names db))))))
-(duck/append-spit "/tmp/lala.csv" "\n")
-(def achs (get-achievements db))
-(def players (get-players db))
-;(get-achievements db)
-(def ap (get-achievements-players))
-(dorun (map #(build-player (filter (fn [x] (= (:player x) (:id %))) ap) % achs) players))
+  (duck/append-spit "/tmp/lala.csv" "\n")
+  (def achs (get-achievements db))
+  (def players (get-players db))
+  ;(get-achievements db)
+  (def ap (get-achievements-players))
+  (dorun (map #(build-player (filter (fn [x] (= (:player x) (:id %))) ap) % achs) players)))
 
 

@@ -34,3 +34,5 @@ test-output
 config.clj
 passwd.clj
 bin/
+target/
+target/classes/

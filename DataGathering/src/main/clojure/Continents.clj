@@ -23,10 +23,11 @@
       ["name=? and battlegroup=?" (:name row) (:battlegroup row)]
       {:continent continent})))
 
-(sql/with-connection 
-  db
-  (with-query-results rs ["SELECT r.name, r.battlegroup, p.url FROM realms r, players p WHERE r.name = p.realm AND r.battlegroup = p.battlegroup AND r.language = 'EN' GROUP BY r.name, r.battlegroup;"]
-    (doall (map set-continent rs))))
+(defn update-db-continents []
+  (sql/with-connection 
+    db
+    (with-query-results rs ["SELECT r.name, r.battlegroup, p.url FROM realms r, players p WHERE r.name = p.realm AND r.battlegroup = p.battlegroup AND r.language = 'EN' GROUP BY r.name, r.battlegroup;"]
+      (doall (map set-continent rs)))))
 
 
 

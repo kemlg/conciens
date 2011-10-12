@@ -1,4 +1,4 @@
-(ns Armory
+(ns Realms
   (:require [clojure.contrib.logging :as log])
   (:require [clojure.contrib.string :as st])
   (require [clojure.contrib.duck-streams])
@@ -41,10 +41,11 @@
   (map #(update-record continent %)
     (get-list-realms continent)))
 
-(sql/with-connection
-  db
-  (with-query-results rs ["SELECT DISTINCT(continent) FROM realms;"]
-    (doall (map #(update-realms (:continent %)) rs))))
+(defn update-db-realms []
+  (sql/with-connection
+    db
+    (with-query-results rs ["SELECT DISTINCT(continent) FROM realms;"]
+      (doall (map #(update-realms (:continent %)) rs)))))
                   
   
 ;; (println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")

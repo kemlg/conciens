@@ -96,7 +96,8 @@
   (dorun (map deref (dorun
     (map #(apply run-thread %) x)))))
 
-(dorun (map execute-multithread (partition-all 5 combs)))
+(defn update-db-wowhead []
+  (dorun (map execute-multithread (partition-all 5 combs))))
 ;(println "!!!!!!!!!!!!!!!!!!!! FINISHED !!!!!!!!!!!!!!!!!!!!")
 
 ;(descarga "http://eu.battle.net/wow/en/character/wildhammer/apphia/achievement/92")

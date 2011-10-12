@@ -10,8 +10,9 @@
     [:name]
     [(:achievement row)])))
 
-(with-connection
-  db
-  (with-query-results rs ["SELECT DISTINCT achievement FROM achievements_players;"]
-    (doall (map insert-achievement rs))))
+(defn update-db-achievements []
+  (with-connection
+    db
+    (with-query-results rs ["SELECT DISTINCT achievement FROM achievements_players;"]
+      (doall (map insert-achievement rs)))))
 

@@ -124,7 +124,8 @@
 (defn parallelize [s]
   (pmap process-character s))
 
-(dorun (map println (map parallelize (partition 4 (shuffle (filter #(not (nil? %)) (get-characters (get-survey (google-docs-treatment)))))))))
+(defn update-db-gdocs []
+  (dorun (map println (map parallelize (partition 4 (shuffle (filter #(not (nil? %)) (get-characters (get-survey (google-docs-treatment))))))))))
 
 
 
