@@ -7,7 +7,7 @@
 	[java.net URL]	
 )  
 
-(:require clojure.contrib.pprint))
+(:require clojure.pprint))
   
 
 (load-file "./contrib/passwd.clj")

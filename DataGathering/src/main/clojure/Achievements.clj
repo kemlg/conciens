@@ -1,5 +1,5 @@
 (ns Achievements
-  (:use [clojure.contrib.sql])
+  (:use [clojure.java.jdbc])
   (:use Utilities))
 
 (defn insert-achievement [row]

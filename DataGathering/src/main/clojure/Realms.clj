@@ -1,10 +1,9 @@
 (ns Realms
-  (:require [clojure.contrib.logging :as log])
-  (:require [clojure.contrib.string :as st])
+  (:require [clojure.tools.logging :as log])
+  (:require [clojure.string :as st])
   (require [clojure.contrib.duck-streams])
   (:use Utilities)
-  (:use [clojure.contrib.sql])
-  (:require [clojure.contrib.sql :as sql])
+  (:require [clojure.java.jdbc :as sql])
   (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))
@@ -44,7 +43,7 @@
 (defn update-db-realms []
   (sql/with-connection
     db
-    (with-query-results rs ["SELECT DISTINCT(continent) FROM realms;"]
+    (sql/with-query-results rs ["SELECT DISTINCT(continent) FROM realms;"]
       (doall (map #(update-realms (:continent %)) rs)))))
                   
   

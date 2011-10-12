@@ -1,9 +1,9 @@
 (ns GetCSV
-  (:require [clojure.contrib.logging :as log])
-  (:require [clojure.contrib.string :as st])
+  (:require [clojure.tools.logging :as log])
+  (:require [clojure.string :as st])
   (require [clojure.contrib.duck-streams :as duck])
-  (:use [clojure.contrib.sql])
-  (:require [clojure.contrib.sql :as sql])
+  (:use [clojure.java.jdbc])
+  (:require [clojure.java.jdbc :as sql])
   (:import (java.sql DriverManager))
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))

@@ -1,10 +1,9 @@
 (ns Armory
-  (:require [clojure.contrib.logging :as log])
-  (:require [clojure.contrib.string :as st])
+  (:require [clojure.tools.logging :as log])
+  (:require [clojure.string :as st])
   (require [clojure.contrib.duck-streams])
-  (:use [clojure.contrib.sql])
   (:use Utilities)
-  (:require [clojure.contrib.sql :as sql])
+  (:require [clojure.java.jdbc :as sql])
   (:require [clojure.pprint :as pp])
   (:use clojure.stacktrace)
   (:import (java.sql DriverManager))
@@ -71,35 +70,35 @@
 
 (defn insert-race
   [r]
-  (clojure.contrib.sql/insert-values
+  (sql/insert-values
    :races
    [:name]
    [r]))
 
 (defn insert-realm
   [r b]
-  (clojure.contrib.sql/insert-values
+  (sql/insert-values
    :realms
    [:name :battlegroup]
    [r b]))
 
 (defn insert-class
   [c s]
-  (clojure.contrib.sql/insert-values
+  (sql/insert-values
    :classes
    [:name :spec]
    [c s]))
 
 (defn insert-player
   [p]
-  (clojure.contrib.sql/insert-values
+  (sql/insert-values
    :players
    (keys p)
    (vals p)))
 
 (defn complete-player
   [id]
-  (clojure.contrib.sql/update-values
+  (sql/update-values
    :players
    ["id=?" id]
    {:complete 1}))
@@ -117,7 +116,7 @@
   ;(with-query-results rs [(str "select id from achievements where name = \"" (. ach replaceAll "\"" "\\\\\"") "\"")]
     (try
       ;(println (str "inserting " id ":" ach))
-      (clojure.contrib.sql/insert-values
+      (sql/insert-values
         :achievements_players
         [:achievement :player_id]
         [(. ach replaceAll "\"" "\\\\\"") id])
@@ -140,7 +139,7 @@
     (catch Exception e (println e)))
   (try
     ;(println (str "select id from players where complete = 0 and name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\""))
-    (with-query-results rs [(str "select id from players where complete = 0 and name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\"")] 
+    (sql/with-query-results rs [(str "select id from players where complete = 0 and name = \"" (:name p) "\" and battlegroup = \"" (:battlegroup p) "\" and realm = \"" (:realm p) "\"")] 
       (if (not (empty? rs))
         (do
           (dorun (map #(insert-achievement (:id (first rs)) %) (filter notnil? (flatten (map descarga (map #(bajar-url p "achievement" %) achi))))))

@@ -1,5 +1,6 @@
 (ns Utilities
-  (:require [clojure.contrib.logging :as log])
+  (:require [clojure.xml :as cxml])
+  (:require [clojure.tools.logging :as log])
   (:import [org.htmlcleaner HtmlCleaner SimpleXmlSerializer CleanerProperties]
            [org.apache.commons.lang StringEscapeUtils]))
 
@@ -33,7 +34,7 @@
      (log/error "Error when parsing" e))))
 
 (defn get-xml-url [url]
-        (clojure.xml/parse 
+        (cxml/parse 
           (new ByteArrayInputStream 
              (.getBytes
                (html-xml

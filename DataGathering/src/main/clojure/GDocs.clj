@@ -1,9 +1,9 @@
 (ns GDocs
   (:use Armory)
-  (:use clojure.contrib.sql)
-  (:require [clojure.contrib.string :as st])
+  (:require [clojure.java.jdbc :as sql])
+  (:require [clojure.string :as st])
   (:use Utilities)
-  (:require [clojure.contrib.pprint :as ccpp])
+  (:require [clojure.pprint :as ccpp])
   (:use clojure.stacktrace)
   (:use ParseExcelDocs))
 
@@ -110,7 +110,7 @@
 (defn process-character [row]
   ;(println (class row))
   ;(ccpp/pprint row)
-  (clojure.contrib.sql/with-connection
+  (sql/with-connection
     db
     (execute-player row))
   (:name row))

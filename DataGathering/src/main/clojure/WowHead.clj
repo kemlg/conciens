@@ -1,6 +1,6 @@
 (ns WowHead
   (:use Armory)
-  (:use clojure.contrib.sql)
+  (:require [clojure.java.jdbc :as sql])
   (:use Utilities))
 
 (import '(java.net URL)
@@ -72,13 +72,13 @@
 
 (defn get-wowhead [limit cl race]
 ;  (println (sql/connection))
-(clojure.contrib.sql/with-connection
+(sql/with-connection
   db
   (println limit cl race)
   (let [url (str "http://www.wowhead.com/profiles=eu?filter=cl=" cl ";ra=" race ";minle=85;maxle=85;cr=5:6:7;crs=1:1:1;crv=1:1:1;ma=1#characters:" limit)]
     (println "Reading " url)
     (try
-      (println "get-wowhead: " (find-connection))
+      (println "get-wowhead: " (sql/find-connection))
       (dorun (map #(store-in % cl race) (mapa url)))
       (catch Exception e (println e) (println (. e printStackTrace)))))))
 
