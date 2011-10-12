@@ -64,10 +64,10 @@
   (get-player-data p base (get-character-info xml)))
 
 (defn get-base-url [url]
-  (nth (st/split #"\/" url) 2))
+  (nth (st/split url #"\/") 2))
 
 (defn set-english [url]
-  (def ss (st/split #"\/" url))
+  (def ss (st/split url #"\/"))
   (def res (apply str (interpose "/" (concat (list "http:/" (nth ss 2) (nth ss 3) "en") (drop 5 ss)))))
   (if (or (. res endsWith "simple") (. res endsWith "advanced"))
     res

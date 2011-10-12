@@ -66,6 +66,11 @@
 		<artifactId>tools.logging</artifactId>
 		<version>0.2.3</version>
 	</dependency>
+	<dependency>
+		<groupId>org.clojure</groupId>
+		<artifactId>data.csv</artifactId>
+		<version>0.1.0</version>
+	</dependency>
   </dependencies>
   <repositories>
 	<repository>
