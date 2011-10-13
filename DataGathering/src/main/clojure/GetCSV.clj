@@ -68,7 +68,7 @@
 (defn preparar-registro [rs]
   ;:id (:id %) :name (:name %) :race (:race %) :class (:class %) :type (:type %) :language (:language %) :population (:population %) :realm (:realm %) :mapa {}
   (def row (into {} rs))
-  (dissoc (dissoc (dissoc row :id_distinct) :url) :complete))
+  (dissoc (dissoc (dissoc (dissoc (dissoc row :id_distinct) :url) :complete) :guild) :email))
 
 (defn get-players [d]
   (sql/with-connection d
@@ -91,6 +91,6 @@
   (def map-total (map #(build-player (filter (fn [x] (= (:player x) (:id %))) ap) % achs) players)) 
   ;(first map-total))
   (with-open [out-file (io/writer filename)]
-    (csv/write-csv out-file (cons (map name (keys (first map-total))) (map #(vals %) map-total)))))
+    (csv/write-csv out-file (cons (map name (keys (first map-total))) (map #(vals %) map-total)) :separator \;)))
 
 (get-csv "/Users/sergio/Desktop/players.csv")

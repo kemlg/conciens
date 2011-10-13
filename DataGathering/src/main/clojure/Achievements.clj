@@ -1,18 +1,18 @@
 (ns Achievements
-  (:use [clojure.java.jdbc])
+  (:require [clojure.java.jdbc :as sql])
   (:use Utilities))
 
 (defn insert-achievement [row]
-  (with-connection
+  (sql/with-connection
     db
-    (insert-values
+    (sql/insert-values
     :achievements
     [:name]
     [(:achievement row)])))
 
 (defn update-db-achievements []
-  (with-connection
+  (sql/with-connection
     db
-    (with-query-results rs ["SELECT DISTINCT achievement FROM achievements_players;"]
+    (sql/with-query-results rs ["SELECT DISTINCT achievement FROM achievements_players WHERE achievement NOT IN (SELECT name FROM achievements);"]
       (doall (map insert-achievement rs)))))
 
