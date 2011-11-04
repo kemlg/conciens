@@ -127,7 +127,8 @@
 (defn update-db-gdocs []
   (dorun (map println (map parallelize (partition 4 (shuffle (filter #(not (nil? %)) (get-characters (get-survey (google-docs-treatment))))))))))
 
-
+(defn get-all-characters []
+  (get-characters (get-survey (google-docs-treatment))))
 
 
 

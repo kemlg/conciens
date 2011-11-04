@@ -26,7 +26,17 @@
       <artifactId>swank-clojure</artifactId>
       <version>1.2.1</version>
     </dependency>
-    <dependency>
+	<dependency>
+	  <groupId>clj-http</groupId>
+	  <artifactId>clj-http</artifactId>
+	  <version>0.2.3</version>
+	</dependency>
+	<dependency>
+		<groupId>congomongo</groupId>
+		<artifactId>congomongo</artifactId>
+		<version>0.1.7</version>
+	</dependency>
+	<dependency>
     	<groupId>net.sourceforge.htmlcleaner</groupId>
     	<artifactId>htmlcleaner</artifactId>
     	<version>2.2</version>
@@ -70,6 +80,11 @@
 		<groupId>org.clojure</groupId>
 		<artifactId>data.csv</artifactId>
 		<version>0.1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.clojure</groupId>
+		<artifactId>data.json</artifactId>
+		<version>0.1.2</version>
 	</dependency>
   </dependencies>
   <repositories>
