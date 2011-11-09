@@ -7,6 +7,7 @@
   (:require [somnium.congomongo :as cm]))
 
 ; ((client/get "http://eu.battle.net/api/wow/character/Dun%20Modr/Nobundia?fields=guild,stats,talents,items,reputation,titles,professions,appearance,companions,mounts,pets,achievements,progression,pvp,quests" {:accept :json}) :body)
+(def conn (load-file "./contrib/mongodb.clj"))
 
 (defn get-records []
   (:content (first (:content (first (excel/google-docs-treatment))))))
@@ -67,7 +68,6 @@
   (cm/with-mongo conn (cm/insert! :players js)))
 
 (def all-records (get-clean-players))
-(def conn (cm/make-connection "test" :host "127.0.0.1" :port 27017))
 
 (dorun (map store-mongo (filter valid-result? (map process-record all-records))))
 
