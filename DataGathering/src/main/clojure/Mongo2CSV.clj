@@ -16,7 +16,9 @@
   (apply union (map get-row-achievements s)))
 
 (defn process-row [row achi]
-  (def table-achievements (apply sorted-map (flatten (map #(list % (if (contains? (row :achievements) %) 1 0)) achi))))
+  (def vs (apply sorted-set (row :achievements)))
+  (def table-achievements (apply concat (map #(apply hash-map (list % (if (contains? vs %) 1 0))) achi)))
+  ;(println table-achievements)
   (apply concat (list (hash-map :id (row :id)) (row :questions) table-achievements)))
 
 (def extracted-data (map extract-info (cm/with-mongo conn (cm/fetch :players))))
