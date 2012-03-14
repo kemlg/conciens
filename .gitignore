@@ -36,4 +36,4 @@ passwd.clj
 bin/
 target/
 target/classes/
-contrib/*
+contrib
