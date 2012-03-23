@@ -76,29 +76,32 @@
   (def table-achievements (apply concat (map #(apply hash-map (list % (if (contains? vs %) 1 0))) achi)))
   (apply concat (list (hash-map "id" (row :id)) (row :questions) table-achievements)))
 
-(def extracted-data (map extract-info (cm/with-mongo conn (cm/fetch :players))))
-(def all-achievements (get-all-achievements extracted-data))
-
-(def all-data (map #(process-row % all-achievements) extracted-data))
-
 (defn get-firsts [row]
   (map #(get % 1) row))
 
-(with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-data.csv")]
-  (csv/write-csv
-    out-file
-    (cons (map #(get % 0) (first all-data))
+(defn get-all-data []
+  (def extracted-data (map extract-info (cm/with-mongo conn (cm/fetch :players))))
+  (def all-achievements (get-all-achievements extracted-data))
+  (def all-data (map #(process-row % all-achievements) extracted-data))
+  all-data)
+
+(defn dump-all []
+  (def all-data (get-all-data))
+  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-data.csv")]
+    (csv/write-csv
+      out-file
+      (cons (map #(get % 0) (first all-data))
           (map get-firsts all-data))))
 
-(with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-questions.csv")]
-  (csv/write-csv
-    out-file
-    (cons (take 42 (map #(get % 0) (first all-data)))
+  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-questions.csv")]
+    (csv/write-csv
+      out-file
+      (cons (take 42 (map #(get % 0) (first all-data)))
           (map #(take 42 (get-firsts %)) all-data))))
 
-(with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-achievements.csv")]
-  (csv/write-csv
-    out-file
-    (cons (cons "id" (drop 42 (map #(get % 0) (first all-data))))
-          (map #(cons (first (get-firsts %)) (drop 42 (get-firsts %))) all-data))))
+  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-achievements.csv")]
+    (csv/write-csv
+      out-file
+      (cons (cons "id" (drop 42 (map #(get % 0) (first all-data))))
+          (map #(cons (first (get-firsts %)) (drop 42 (get-firsts %))) all-data)))))
 
