@@ -55,9 +55,12 @@
     "How important is it to you that your character looks different from other characters?" 999912
     ))
 
+(def questions-map
+  (into {} (map #(vector (val %) (key %)) map-questions)))
+
 (defn strings-to-ids [row]
-  (def idd (get map-questions (name (key row))))
-  (sorted-map (if (nil? idd) (name (key row)) idd) (val row)))
+  (let [idd (get map-questions (name (key row)))]
+    (sorted-map (if (nil? idd) (name (key row)) idd) (val row))))
 
 (defn normalize-name [txt]
   (. txt replaceAll "%" "PERCENT"))
@@ -72,18 +75,17 @@
   (apply union (map get-row-achievements s)))
 
 (defn process-row [row achi]
-  (def vs (apply sorted-set (row :achievements)))
-  (def table-achievements (apply concat (map #(apply hash-map (list % (if (contains? vs %) 1 0))) achi)))
-  (apply concat (list (hash-map "id" (row :id)) (row :questions) table-achievements)))
+  (let [vs (apply sorted-set (row :achievements))]
+    (let [table-achievements (apply concat (map #(apply hash-map (list % (if (contains? vs %) 1 0))) achi))]
+      (apply concat (list (hash-map "id" (row :id)) (row :questions) table-achievements)))))
 
 (defn get-firsts [row]
   (map #(get % 1) row))
 
 (defn get-all-data []
-  (def extracted-data (map extract-info (cm/with-mongo conn (cm/fetch :players))))
-  (def all-achievements (get-all-achievements extracted-data))
-  (def all-data (map #(process-row % all-achievements) extracted-data))
-  all-data)
+  (let [extracted-data (map extract-info (cm/with-mongo conn (cm/fetch :players)))]
+    (let [all-achievements (get-all-achievements extracted-data)]
+      (map #(process-row % all-achievements) extracted-data))))
 
 (defn dump-all []
   (def all-data (get-all-data))
