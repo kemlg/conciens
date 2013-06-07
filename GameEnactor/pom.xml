@@ -199,7 +199,7 @@
 		<dependency>
 			<groupId>com.github.tranchis</groupId>
 			<artifactId>wire</artifactId>
-			<version>0.0.4</version>
+			<version>0.0.5</version>
 			<type>jar</type>
 		</dependency>
 	</dependencies>

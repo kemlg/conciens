@@ -32,7 +32,7 @@ public class EventBusJavaBridge
 	public EventBusJavaBridge()
 	{
 		try {
-			this.eb = new EventBus(busHost, "7676");
+			this.eb = new EventBus(busHost, "7676", false);
 			
 			FFactory = FactFactory.eINSTANCE;
 			AFactory = ActionFactory.eINSTANCE;
