@@ -1,8 +1,8 @@
-(ns com.github.consciens.gameenactor.GameBridgeClj)
+(ns com.github.conciens.gameenactor.GameBridgeClj)
 (import 
  '(java.net ServerSocket)
  '(java.io BufferedReader InputStreamReader)
- '(com.github.consciens.gameenactor EventBusJavaBridge)  
+ '(com.github.conciens.gameenactor EventBusJavaBridge)  
 )
 ;Java Code
 ;		ServerSocket	ssin, ssout;

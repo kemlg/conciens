@@ -1,4 +1,4 @@
-package com.github.consciens.gameenactor;
+package com.github.conciens.gameenactor;
 
 public final class Constants
 {
