@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.kemlg</groupId>
-	<artifactId>conciens.enactor</artifactId>
+	<artifactId>conciens</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<repositories>
 		<repository>
@@ -199,7 +199,7 @@
 		<dependency>
 			<groupId>com.github.tranchis</groupId>
 			<artifactId>wire</artifactId>
-			<version>0.0.3</version>
+			<version>0.0.4</version>
 			<type>jar</type>
 		</dependency>
 	</dependencies>
