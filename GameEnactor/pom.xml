@@ -199,13 +199,18 @@
 		<dependency>
 			<groupId>com.github.tranchis</groupId>
 			<artifactId>wire</artifactId>
-			<version>0.0.5</version>
+			<version>0.0.6</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>eu.superhub.wp3</groupId>
 			<artifactId>situationaldata-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>clj-time</groupId>
+			<artifactId>clj-time</artifactId>
+			<version>0.5.1</version>
 		</dependency>
 	</dependencies>
 </project>

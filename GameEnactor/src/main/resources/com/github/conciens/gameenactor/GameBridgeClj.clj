@@ -1,118 +1,77 @@
-(ns com.github.conciens.gameenactor.GameBridgeClj)
+(ns com.github.conciens.gameenactor.GameBridgeClj
+  (require [clj-time.local :as cljt]
+           [clj-time.coerce :as cljtc]))
 
 (import (java.net ServerSocket)
         (java.io BufferedReader InputStreamReader)
-        
-        (com.github.conciens.gameenactor EventBusJavaBridge))
+        (net.sf.ictalive.operetta.OM Atom Constant OMFactory)
+        (net.sf.ictalive.runtime.action ActionFactory MatchmakerQuery)
+        (net.sf.ictalive.runtime.event Actor Cause Event EventFactory Key ObserverView)
+        (net.sf.ictalive.runtime.fact Content FactFactory Message SendAct)
+        (eu.superhub.wp4.monitor.eventbus EventBus)
+        (eu.superhub.wp4.monitor.eventbus.exception EventBusConnectionException))
 
-;Java Code
-;		ServerSocket	ssin, ssout;
-;		Socket			sin ,sout;
-;		InputStream		is;
-;		BufferedReader	br;
-;		String			line;
-;		
-;		ssin = new ServerSocket(Constants.SOCK_PORT_IN);
-;		ssout = new ServerSocket(Constants.SOCK_PORT_OUT);
-;		while(!ssin.isClosed())
-;		{
-;			sin = ssin.accept();
-;			System.out.println("Connection in!");
-;			sout = ssout.accept();
-;			System.out.println("Connection out!");
-;			
-;			is = sin.getInputStream();
-;			br = new BufferedReader(new InputStreamReader(is));
-;			while(!sin.isClosed())
-;			{
-;				line = br.readLine();
-;				System.out.println("Message: [" + line + "]");
-;				line = line + "\n";
-;				sout.getOutputStream().write(line.getBytes());
-;			}
-;		}
-
+(def msg-count (ref 0))
 
 (defn process-line [txt ebjt]
-  (let [splitted_text (re-seq #"[^\|]+" txt)]
-    (cond 
-      (= (nth splitted_text 0 "not-found") "PVP_KILL")
-        (. ebjt SendMessageEvent (str "PVP_KILL" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))      
-      (= (nth splitted_text 0 "not-found") "CREATURE_KILL")
-        (. ebjt SendMessageEvent (str "CREATURE_KILL" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "KILLED_BY_CREATURE")
-        (. ebjt SendMessageEvent (str "KILLED_BY_CREATURE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "LEVEL_CHANGED")
-        (. ebjt SendMessageEvent (str "LEVEL_CHANGED" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "MONEY_CHANGED")
-        (. ebjt SendMessageEvent (str "MONEY_CHANGED" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "AREA_TRIGGER")
-        (. ebjt SendMessageEvent (str "AREA_TRIGGER" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "WEATHER_CHANGE")
-        (. ebjt SendMessageEvent (str "WEATHER_CHANGE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      ;(= (nth splitted_text 0 "not-found") "WEATHER_UPDATE")
-        ;(. ebjt SendMessageEvent (str "WEATHER_UPDATE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "WEATHER_UPDATE")
-        nil ;( println "WEATHER_UPDATE is not a relevant event")
-      (= (nth splitted_text 0 "not-found") "EMOTE")
-        (. ebjt SendMessageEvent (str "EMOTE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "HELLO")
-        (. ebjt SendMessageEvent (str "HELLO" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      ;(= (nth splitted_text 0 "not-found") "OBJECT_UPDATE")
-        ;(. ebjt SendMessageEvent (str "OBJECT_UPDATE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "OBJECT_UPDATE")
-        nil ; ( println "OBJECT_UPDATE is not a relevant event")
-      ;(= (nth splitted_text 0 "not-found") "CREATURE_UPDATE")
-        ;(. ebjt SendMessageEvent (str "CREATURE_UPDATE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found")))
-      (= (nth splitted_text 0 "not-found") "CREATURE_UPDATE")
-        nil ; ( println "CREATURE_UPDATE is not a relevant event")
-      (= (nth splitted_text 0 "not-found") "QUEST_ACCEPT_ITEM")
-        (. ebjt SendMessageEvent (str "QUEST_ACCEPT_ITEM" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      (= (nth splitted_text 0 "not-found") "QUEST_ACCEPT_OBJECT")
-        (. ebjt SendMessageEvent (str "QUEST_ACCEPT_OBJECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      (= (nth splitted_text 0 "not-found") "ITEM_USE")
-        (. ebjt SendMessageEvent (str "ITEM_USE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      (= (nth splitted_text 0 "not-found") "ITEM_EXPIRE")
-        (. ebjt SendMessageEvent (str "ITEM_EXPIRE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GOSSIP_SELECT")
-        (. ebjt SendMessageEvent (str "GOSSIP_SELECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GOSSIP_SELECT_OBJECT")
-        (. ebjt SendMessageEvent (str "GOSSIP_SELECT_OBJECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GOSSIP_SELECT_CODE")
-        (. ebjt SendMessageEvent (str "GOSSIP_SELECT_CODE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found") " : " (nth splitted_text 5 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GOSSIP_SELECT_CODE_OBJECT")
-        (. ebjt SendMessageEvent (str "GOSSIP_SELECT_CODE_OBJECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found") " : " (nth splitted_text 5 "not-found")))
-      (= (nth splitted_text 0 "not-found") "QUEST_SELECT")
-        (. ebjt SendMessageEvent (str "QUEST_SELECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      (= (nth splitted_text 0 "not-found") "QUEST_COMPLETE")
-        (. ebjt SendMessageEvent (str "QUEST_COMPLETE" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      (= (nth splitted_text 0 "not-found") "QUEST_REWARD")
-        (. ebjt SendMessageEvent (str "QUEST_REWARD" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found")))
-      (= (nth splitted_text 0 "not-found") "QUEST_REWARD_OBJECT")
-        (. ebjt SendMessageEvent (str "QUEST_REWARD_OBJECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found") " : " (nth splitted_text 4 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GET_DIALOG_STATUS")
-        (. ebjt SendMessageEvent (str "GET_DIALOG_STATUS" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))
-      (= (nth splitted_text 0 "not-found") "GET_DIALOG_STATUS_OBJECT")
-        (. ebjt SendMessageEvent (str "GET_DIALOG_STATUS_OBJECT" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found")))      
-      (= (nth splitted_text 0 "not-found") "OBJECT_DESTROYED")
-        (. ebjt SendMessageEvent (str "OBJECT_DESTROYED" " : " (nth splitted_text 1 "not-found") " : " (nth splitted_text 2 "not-found") " : " (nth splitted_text 3 "not-found")))
-      :else
-        nil ))); (println (str "This is not an event: [" txt "]")))))
+  (let [splitted-text (re-seq #"[^\|]+" txt)
+      ev (.createEvent EventFactory/eINSTANCE)
+      c (.createContent FactFactory/eINSTANCE)
+      sa (.createSendAct FactFactory/eINSTANCE)
+      ms (.createMessage FactFactory/eINSTANCE)
+      a (.createAtom OMFactory/eINSTANCE)
+      myActor (.createActor EventFactory/eINSTANCE)
+      myKey (.createKey EventFactory/eINSTANCE)
+      myView (.createObserverView EventFactory/eINSTANCE)
+      myCause (.createCause EventFactory/eINSTANCE)
+      provEv (.createEvent EventFactory/eINSTANCE)
+      provKey (.createKey EventFactory/eINSTANCE)]
+    (.setName myActor "WoWGameEnactor")
+    (.setUrl myActor "alive.lsi.upc.edu")
+    (.setId myKey (str (cljtc/to-long (cljt/local-now))))
+    (.setLocalKey ev myKey)
+    (.setAsserter ev myActor)
+    (.setPointOfView ev myView)
+    (.setFact c sa)
+    (.setContent ev c)
+    (.add (.getObject ms) a)
+    (.setPredicate a (first splitted-text))
+    (.addAll
+      (.getArguments a)
+      (doall
+        (map #(let [ct (.createConstant OMFactory/eINSTANCE)]
+                (.setName ct %)
+                ct)
+             (rest splitted-text))))
+    (let [formula (str
+                    (first splitted-text)
+                    "("
+                    (apply str (interpose ", " (rest splitted-text)))
+                    ")")]
+      (.setId provKey formula))
+    (.setLocalKey provEv provKey)
+    (.setEvent myCause provEv)
+    (.add (.getProvenance ev) myCause)
+    (.setSendMessage sa ms)
+    (.publish ebjt ev)
+    (dosync (alter msg-count dec))))
 
 (defn process-socket [sock ebjt]
   (println sock)
   (let [buf (BufferedReader. (InputStreamReader. (. sock getInputStream)))]
-	  (loop [txt (. buf readLine)] 
-	    (if (nil? txt)
-	      (println "Closed!")
-	      (do
-	        (future (process-line txt ebjt))
+    (loop [txt (. buf readLine)] 
+      (if (nil? txt)
+        (println "Closed!")
+        (do
+          (future (process-line txt ebjt))
+          (dosync (alter msg-count inc))
+          ;(println "Pending messages: " @msg-count)
 	        (recur (. buf readLine))))))
   (. sock close))
 
 ;; main
 (defn main []
-  (let [ebjt (new EventBusJavaBridge)]
+  (let [ebjt (EventBus. "192.168.1.120" "7676" false)]
     (loop [ssin (ServerSocket. 6969) ssout (ServerSocket. 6970)]
     (if (. ssin isClosed)
       nil
