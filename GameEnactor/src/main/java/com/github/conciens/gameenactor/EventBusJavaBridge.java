@@ -24,7 +24,7 @@ import eu.superhub.wp4.monitor.eventbus.exception.EventBusConnectionException;
 public class EventBusJavaBridge 
 {
 	EventBus	eb;
-	String busHost = "localhost";
+	String busHost = "192.168.1.120";
 	
 	FactFactory FFactory;
 	ActionFactory AFactory;
