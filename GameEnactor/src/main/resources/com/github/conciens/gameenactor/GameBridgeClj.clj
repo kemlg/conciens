@@ -1,5 +1,5 @@
 (ns com.github.conciens.gameenactor.GameBridgeClj
-  (require [clj-time.local :as cljt]
+  (require [clj-time.core :as cljt]
            [clj-time.coerce :as cljtc]))
 
 (import (java.net ServerSocket)
@@ -15,47 +15,38 @@
 (def total-msgs (ref 0))
 (def init-time (ref (System/currentTimeMillis)))
 
+;  <event:Event asserter=\"/5\" timestamp=\"2013-06-21T13:35:06.425+0200\">
+(defn generate-xml [actor-name actor-url splitted-text]
+  (let [predicate (first splitted-text)
+        formula (str (first splitted-text) "(" (apply str (interpose ", " (rest splitted-text))) ")")
+        number-of-params (count (rest splitted-text))
+        arguments (apply str (interpose " " (map #(str "\"" %) (range 2 (+ 2 number-of-params)))))]
+    (str
+"<?xml version=\"1.0\" encoding=\"ASCII\"?>
+<xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:event=\"http://ict-alive.sourceforge.net/RunTime/events\" xmlns:fact=\"http://ict-alive.sourceforge.net/RunTime/facts\" xmlns:net.sf.ictalive.operetta=\"http://ict-alive.sourceforge.net/operetta/OM/1.0\">
+  <event:Event asserter=\"/" (+ 3 number-of-params) "\" timestamp=\"" (cljt/now) "\">
+    <localKey id=\"" (str (java.util.UUID/randomUUID) ":" (cljt/epoch)) "\"/>
+    <content>
+      <fact xsi:type=\"fact:SendAct\">
+        <sendMessage object=\"/1\"/>
+      </fact>
+    </content>
+    <pointOfView xsi:type=\"event:ObserverView\"/>
+    <provenance event=\"/" (+ 2 number-of-params) "\"/>
+  </event:Event>
+  <net.sf.ictalive.operetta:Atom predicate=\"" predicate "\" arguments=\"" arguments "\"/>"
+  (apply str (interpose "\n" (map #(str "<net.sf.ictalive.operetta:Constant name=\"" % "\"/>") (rest splitted-text))))
+  "<event:Event>
+    <localKey id=\"" formula "\"/>
+  </event:Event>
+  <event:Actor url=\"" actor-url "\" emit=\"/0\" name=\"" actor-name "\"/>
+</xmi:XMI>")))
+
 (defn process-line [txt ebjt]
-  (let [splitted-text (re-seq #"[^\|]+" txt)
-      ev (.createEvent EventFactory/eINSTANCE)
-      c (.createContent FactFactory/eINSTANCE)
-      sa (.createSendAct FactFactory/eINSTANCE)
-      ms (.createMessage FactFactory/eINSTANCE)
-      a (.createAtom OMFactory/eINSTANCE)
-      myActor (.createActor EventFactory/eINSTANCE)
-      myKey (.createKey EventFactory/eINSTANCE)
-      myView (.createObserverView EventFactory/eINSTANCE)
-      myCause (.createCause EventFactory/eINSTANCE)
-      provEv (.createEvent EventFactory/eINSTANCE)
-      provKey (.createKey EventFactory/eINSTANCE)]
-    (.setName myActor "WoWGameEnactor")
-    (.setUrl myActor "alive.lsi.upc.edu")
-    (.setId myKey (str (cljtc/to-long (cljt/local-now))))
-    (.setLocalKey ev myKey)
-    (.setAsserter ev myActor)
-    (.setPointOfView ev myView)
-    (.setFact c sa)
-    (.setContent ev c)
-    (.add (.getObject ms) a)
-    (.setPredicate a (first splitted-text))
-    (.addAll
-      (.getArguments a)
-      (doall
-        (map #(let [ct (.createConstant OMFactory/eINSTANCE)]
-                (.setName ct %)
-                ct)
-             (rest splitted-text))))
-    (let [formula (str
-                    (first splitted-text)
-                    "("
-                    (apply str (interpose ", " (rest splitted-text)))
-                    ")")]
-      (.setId provKey formula))
-    (.setLocalKey provEv provKey)
-    (.setEvent myCause provEv)
-    (.add (.getProvenance ev) myCause)
-    (.setSendMessage sa ms)
-    (.publish ebjt ev)
+    (let [splitted-text (re-seq #"[^\|]+" txt)
+          actor-name "WoWGameEnactor"
+          actor-url "alive.lsi.upc.edu"]
+    (.publish ebjt (generate-xml actor-name actor-url splitted-text))
     (dosync (alter msg-count dec))))
 
 (defn process-socket [sock ebjt]
