@@ -12,6 +12,8 @@
         (eu.superhub.wp4.monitor.eventbus.exception EventBusConnectionException))
 
 (def msg-count (ref 0))
+(def total-msgs (ref 0))
+(def init-time (ref (System/currentTimeMillis)))
 
 (defn process-line [txt ebjt]
   (let [splitted-text (re-seq #"[^\|]+" txt)
@@ -64,14 +66,26 @@
         (println "Closed!")
         (do
           (future (process-line txt ebjt))
-          (dosync (alter msg-count inc))
-          ;(println "Pending messages: " @msg-count)
+          (dosync (alter msg-count inc) (alter total-msgs inc))
 	        (recur (. buf readLine))))))
   (. sock close))
+
+(defn give-stats [ebjt]
+  (loop [b false]
+    (if b
+      nil
+      (do
+        (Thread/sleep 5000)
+        (let [pending-messages @msg-count
+              msgs-per-s (double (/ @total-msgs (/ (- (System/currentTimeMillis) @init-time) 1000)))
+              queue-status (.waitingForDispatch ebjt)]
+          (println "Pending messages: " pending-messages " | Messages per second: " msgs-per-s " | Serializing queue size: " queue-status))
+        (recur false)))))
 
 ;; main
 (defn main []
   (let [ebjt (EventBus. "192.168.1.120" "7676" false)]
+    (future (give-stats ebjt))
     (loop [ssin (ServerSocket. 6969) ssout (ServerSocket. 6970)]
     (if (. ssin isClosed)
       nil
