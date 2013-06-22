@@ -1,6 +1,7 @@
 (ns com.github.conciens.gameenactor.GameBridgeClj
   (require [clj-time.core :as cljt]
-           [clj-time.coerce :as cljtc]))
+           [clj-time.coerce :as cljtc]
+           [com.github.conciens.gameenactor.RDFMapper :as rdfm]))
 
 (import (java.net ServerSocket)
         (java.io BufferedReader InputStreamReader)
@@ -88,6 +89,10 @@
       (let [candidates #{"PLAYER_UPDATE" "HELLO" "EMOTE" "WEATHER_CHANGE"}]
         (not (nil? (some true? (map #(.contains xml %) candidates))))))
     (^void onEvent [this ^Event ev]
+      (let [atom (first (.getObject (.getSendMessage (.getFact (.getContent ev)))))
+            predicate (.getPredicate atom)
+            arguments (into [] (.getArguments atom))]
+        (println (rdfm/get-player (.getName (first arguments)))))
       (println (.getId (.getLocalKey (.getEvent (first (.getProvenance ev)))))))))
 
 ;; main
