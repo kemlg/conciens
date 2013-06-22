@@ -8,7 +8,7 @@
         (net.sf.ictalive.runtime.action ActionFactory MatchmakerQuery)
         (net.sf.ictalive.runtime.event Actor Cause Event EventFactory Key ObserverView)
         (net.sf.ictalive.runtime.fact Content FactFactory Message SendAct)
-        (eu.superhub.wp4.monitor.eventbus EventBus)
+        (eu.superhub.wp4.monitor.eventbus EventBus EventBusListener)
         (eu.superhub.wp4.monitor.eventbus.exception EventBusConnectionException))
 
 (def msg-count (ref 0))
@@ -74,10 +74,27 @@
           (println "Pending messages: " pending-messages " | Messages per second: " msgs-per-s " | Serializing queue size: " queue-status " | Deserializing queue size: " available))
         (recur false)))))
 
+(defn empty-queue [ebjt]
+  (loop [b false]
+    (if b
+      nil
+      (do
+        (.take ebjt)
+        (recur false)))))
+
+(def eb-listener
+  (reify EventBusListener
+    (^boolean preFilter [this ^String xml]
+      (let [candidates #{"PLAYER_UPDATE" "HELLO" "EMOTE" "WEATHER_CHANGE"}]
+        (not (nil? (some true? (map #(.contains xml %) candidates))))))
+    (^void onEvent [this ^Event ev]
+      (println (.getId (.getLocalKey (.getEvent (first (.getProvenance ev)))))))))
+
 ;; main
 (defn main []
-  (let [ebjt (EventBus. "192.168.1.120" "7676" false)]
-    (.activateSubscription ebjt false)
+  (let [ebjt (EventBus. "192.168.1.120" "7676" eb-listener false)]
+    ;(.activateSubscription ebjt false)
+    (future (empty-queue ebjt))
     (future (give-stats ebjt))
     (loop [ssin (ServerSocket. 6969) ssout (ServerSocket. 6970)]
     (if (. ssin isClosed)
