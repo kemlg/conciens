@@ -1,4 +1,4 @@
-(ns com.github.conciens.gameenactor.GameBridgeClj
+(ns com.github.conciens.gameenactor.GameBridge
   (require [clj-time.core :as cljt]
            [clj-time.coerce :as cljtc]
            [com.github.conciens.gameenactor.RDFMapper :as rdfm]))
@@ -97,16 +97,17 @@
 
 ;; main
 (defn main []
-  (let [ebjt (EventBus. "192.168.1.120" "7676" eb-listener false)]
-    ;(.activateSubscription ebjt false)
+  (println "Starting GameBridge...")
+  (let [ebjt (EventBus. "192.168.1.120" "7676" false)]
+    (.activateSubscription ebjt false)
     (future (empty-queue ebjt))
     (future (give-stats ebjt))
+    (println "Creating sockets...")
     (loop [ssin (ServerSocket. 6969) ssout (ServerSocket. 6970)]
-    (if (. ssin isClosed)
-      nil
-      (do
-        (let [sock (. ssin accept)]
-          (future (process-socket sock ebjt)))
-        (recur ssin ssout))))))
-
-(main)
+      (if (. ssin isClosed)
+        nil
+        (do
+          (let [sock (. ssin accept)]
+            (println "Connection accepted!")
+            (future (process-socket sock ebjt)))
+          (recur ssin ssout))))))
