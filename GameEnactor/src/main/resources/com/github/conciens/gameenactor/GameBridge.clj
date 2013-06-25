@@ -1,13 +1,11 @@
 (ns com.github.conciens.gameenactor.GameBridge
   (require [clj-time.core :as cljt]
-           [clj-time.coerce :as cljtc]
-           [com.github.conciens.gameenactor.RDFMapper :as rdfm]))
+           [clj-time.coerce :as cljtc]))
 
 (import (java.net ServerSocket)
         (java.io BufferedReader InputStreamReader)
         (net.sf.ictalive.operetta.OM Atom Constant OMFactory)
         (net.sf.ictalive.runtime.action ActionFactory MatchmakerQuery)
-        (net.sf.ictalive.runtime.event Actor Cause Event EventFactory Key ObserverView)
         (net.sf.ictalive.runtime.fact Content FactFactory Message SendAct)
         (eu.superhub.wp4.monitor.eventbus EventBus EventBusListener)
         (eu.superhub.wp4.monitor.eventbus.exception EventBusConnectionException))
@@ -83,22 +81,10 @@
         (.take ebjt)
         (recur false)))))
 
-(def eb-listener
-  (reify EventBusListener
-    (^boolean preFilter [this ^String xml]
-      (let [candidates #{"PLAYER_UPDATE" "HELLO" "EMOTE" "WEATHER_CHANGE"}]
-        (not (nil? (some true? (map #(.contains xml %) candidates))))))
-    (^void onEvent [this ^Event ev]
-      (let [atom (first (.getObject (.getSendMessage (.getFact (.getContent ev)))))
-            predicate (.getPredicate atom)
-            arguments (into [] (.getArguments atom))]
-        (println (rdfm/get-player (.getName (first arguments)))))
-      (println (.getId (.getLocalKey (.getEvent (first (.getProvenance ev)))))))))
-
 ;; main
 (defn main []
   (println "Starting GameBridge...")
-  (let [ebjt (EventBus. "192.168.1.120" "7676" false)]
+  (let [ebjt (EventBus. "conciens.mooo.com" "7676" false)]
     (.activateSubscription ebjt false)
     (future (empty-queue ebjt))
     (future (give-stats ebjt))

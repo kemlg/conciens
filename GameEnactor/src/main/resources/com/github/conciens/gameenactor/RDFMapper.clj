@@ -5,7 +5,10 @@
         (org.openrdf.repository RepositoryConnection Repository)
         (org.openrdf.query Query QueryLanguage)
         (org.openrdf.model Resource)
-        (org.openrdf.model.impl URIImpl LiteralImpl))
+        (org.openrdf.model.impl URIImpl LiteralImpl)
+        (net.sf.ictalive.runtime.event Actor Cause Event EventFactory Key ObserverView)
+        (eu.superhub.wp4.monitor.eventbus EventBus EventBusListener)
+        (eu.superhub.wp3.genericadaptor IPushAdaptor AdaptorEngine IPushCallback))
 
 (defn iteration-seq [iteration]
   (iterator-seq
@@ -15,7 +18,7 @@
      (remove [this] (.remove iteration)))))
 
 (defn query-test [guid]
-  (let [repositoryManager (RemoteRepositoryManager. "http://192.168.1.120:8080/openrdf-sesame")]
+  (let [repositoryManager (RemoteRepositoryManager. "http://conciens.mooo.com:8080/openrdf-sesame")]
     (.initialize repositoryManager)
     (let [query-str (str "PREFIX conciens:<http://github.com/kemlg/conciens#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
@@ -37,7 +40,7 @@ WHERE { ?x conciens:characters-guid \"" guid "\" .
       (.shutDown repositoryManager))))
 
 (defn get-player [guid]
-  (let [repositoryManager (RemoteRepositoryManager. "http://192.168.1.120:8080/openrdf-sesame")]
+  (let [repositoryManager (RemoteRepositoryManager. "http://conciens.mooo.com:8080/openrdf-sesame")]
     (.initialize repositoryManager)
     (let [repository (.getRepository repositoryManager "conciens")
           repositoryConnection (.getConnection repository)
@@ -51,5 +54,52 @@ WHERE { ?x conciens:characters-guid \"" guid "\" .
 
 ;(time (query-test 1))
 ;(time (get-player 1))
+
+(defn wow-adaptor []
+  (reify IPushAdaptor
+    (^void registerCallback [this ^IPushCallback pc]
+      nil)))
+
+(def eb-listener
+  (reify EventBusListener
+    (^boolean preFilter [this ^String xml]
+      (let [candidates #{"PLAYER_UPDATE" "HELLO" "EMOTE" "WEATHER_CHANGE"}]
+        (not (nil? (some true? (map #(.contains xml %) candidates))))))
+    (^void onEvent [this ^Event ev]
+      (let [atom (first (.getObject (.getSendMessage (.getFact (.getContent ev)))))
+            predicate (.getPredicate atom)
+            arguments (into [] (.getArguments atom))]
+        (println (get-player (.getName (first arguments)))))
+      (println (.getId (.getLocalKey (.getEvent (first (.getProvenance ev)))))))))
+
+(AdaptorEngine. (wow-adaptor))
+
+(defn give-stats [ebjt] ; TODO: Repeated code
+  (loop [b false]
+    (if b
+      nil
+      (do
+        (Thread/sleep 5000)
+        (let [queue-status (.waitingForDispatch ebjt)
+              available (.available ebjt)]
+          (println "Serializing queue size: " queue-status " | Deserializing queue size: " available))
+        (recur false)))))
+
+(defn empty-queue [ebjt] ; TODO: Repeated code
+  (loop [b false]
+    (if b
+      nil
+      (do
+        (.take ebjt)
+        (recur false)))))
+
+(let [ebjt (EventBus. "conciens.mooo.com" "7676" eb-listener false)]
+  (future (empty-queue ebjt))
+  (future (give-stats ebjt)))
+
+
+
+
+
 
 
