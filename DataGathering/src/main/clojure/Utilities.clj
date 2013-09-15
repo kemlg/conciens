@@ -34,11 +34,11 @@
      (log/error "Error when parsing" e))))
 
 (defn get-xml-url [url]
-        (cxml/parse 
-          (new ByteArrayInputStream 
-             (.getBytes
-               (html-xml
-                 (do
-                   (println "fetching" url)
-                   (fetch-url url)))))))
+  (cxml/parse 
+    (new ByteArrayInputStream 
+         (.getBytes
+           (html-xml
+             (do
+               (println "fetching" url)
+               (fetch-url url)))))))
 

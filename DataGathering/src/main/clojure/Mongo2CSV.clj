@@ -2,9 +2,12 @@
     (:require [somnium.congomongo :as cm])
     (:use [clojure.set])
     (:require [clojure.data.csv :as csv]
-              [clojure.java.io :as io]))
+              [clojure.java.io :as io]
+              [snippets-generic :as cs]))
 
-(def conn (load-file "./contrib/mongodb.clj"))
+(def props (cs/load-props "conciens.properties"))
+(def conn (cm/make-connection (str "mongodb://" (:mongodb.user props) ":" (:mongodb.password props) "@"
+                                   (:mongodb.host props) ":" (:mongodb.port props) "/" (:mongodb.db props))))
 
 (def map-questions
   (hash-map
@@ -89,19 +92,19 @@
 
 (defn dump-all []
   (def all-data (get-all-data))
-  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-data.csv")]
+  (with-open [out-file (io/writer (str (:local.output_dir props) "/wow-data.csv"))]
     (csv/write-csv
       out-file
       (cons (map #(get % 0) (first all-data))
           (map get-firsts all-data))))
 
-  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-questions.csv")]
+  (with-open [out-file (io/writer (str (:local.output_dir props) "/wow-questions.csv"))]
     (csv/write-csv
       out-file
       (cons (take 42 (map #(get % 0) (first all-data)))
           (map #(take 42 (get-firsts %)) all-data))))
 
-  (with-open [out-file (io/writer "/Users/sergio/Dropbox/KEMLG/articulos/AAMAS 2012/WoW/data/wow-achievements.csv")]
+  (with-open [out-file (io/writer (str (:local.output_dir props) "/wow-achievements.csv"))]
     (csv/write-csv
       out-file
       (cons (cons "id" (drop 42 (map #(get % 0) (first all-data))))

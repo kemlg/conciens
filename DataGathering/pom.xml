@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>congomongo</groupId>
 			<artifactId>congomongo</artifactId>
-			<version>0.1.7</version>
+			<version>0.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.htmlcleaner</groupId>
@@ -77,11 +77,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
-			<artifactId>clojure</artifactId>
-			<version>1.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.clojure</groupId>
 			<artifactId>java.jdbc</artifactId>
 			<version>0.0.6</version>
 		</dependency>
@@ -98,7 +93,7 @@
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>data.json</artifactId>
-			<version>0.1.2</version>
+			<version>0.2.3</version>	
 		</dependency>
 		<dependency>
 			<groupId>org.apache.mahout</groupId>
@@ -125,6 +120,17 @@
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>weka-stable</artifactId>
 			<version>3.6.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.tranchis</groupId>
+			<artifactId>clojure-snippets</artifactId>
+			<version>0.0.2</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.clojure</groupId>
+			<artifactId>clojure</artifactId>
+			<version>1.5.1</version>
 		</dependency>
 	</dependencies>
 	<repositories>
@@ -155,6 +161,11 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>bintray</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/tranchis/clojure-snippets</url>
 		</repository>
 	</repositories>
 	<build>
