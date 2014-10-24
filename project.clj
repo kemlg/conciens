@@ -28,6 +28,7 @@
   :plugins [[lein-ring "0.8.5"]
             [no-man-is-an-island/lein-eclipse "2.0.0"]]
   :java-source-paths ["java"]
+  :nrepl {:start? true :port 3001}
   :main conciens.game-bridge
   :ring {:handler conciens.handler/app}
   :profiles
