@@ -46,8 +46,7 @@
   [_])
 
 (def actions (ref []))
-
-;; {:event-type EVENT_TYPE_PLAYER_SPELL_CAST, :num-values [0 0], :player {:y 15.5224, :description X: -9464.03 Y: 15.5224 Z: 56.9631 O: 0.474735, :o 0.474735, :name Grijander, :level 1, :z 56.9631, :x -9464.03, :map 0, :guid 2}, :spell {:id 687, :name true, :family 5}}
+(def commands (ref []))
 
 (def conn (m/make-connection :conciens))
 (m/set-connection! conn)
@@ -62,25 +61,18 @@
         (dosync
           (alter actions (fn [old-actions]
                            old-actions
-                           (conj old-actions
-                                 (if (= (:event-type item)
-                                        "EVENT_TYPE_PLAYER_SPELL_CAST")
-                                   (condp = (:id (:spell item))
-                                     59752 {:action-id "remove-quest"}
-                                     2053 {:action-id "add-quest"}
-                                     687 {:action-id "add-quest"}
-                                     48071 {:action-id "remove-quest"}
-                                     {:action-id "no-op"})
-                                   {:action-id "no-op"})
-                                 #_{:action-id "create"
-                                   :object-id 519742
-                                   :map-id (:map (:player item))
-                                   :x (:x (:player item))
-                                   :y (:y (:player item))
-                                   :z (:z (:player item))
-                                   :o (:o (:player item))}
-                                 #_{:action-id "reload-quests"})))))))
+                           (concat
+                             @commands
+                             old-actions)))
+          (alter commands (fn [_] []))))))
   (recur (<! ch)))
+
+(defn command [& args]
+  (dosync
+    (alter commands
+           (fn [old-commands]
+             (conj old-commands
+                   (apply hash-map args))))))
 
 (defn create-response []
   (dosync
