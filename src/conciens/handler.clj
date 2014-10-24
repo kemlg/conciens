@@ -63,7 +63,9 @@
                                         "EVENT_TYPE_PLAYER_SPELL_CAST")
                                    (condp = (:id (:spell item))
                                      59752 {:action-id "remove-quest"}
+                                     2053 {:action-id "add-quest"}
                                      687 {:action-id "add-quest"}
+                                     48071 {:action-id "remove-quest"}
                                      {:action-id "no-op"})
                                    {:action-id "no-op"})
                                  #_{:action-id "create"
