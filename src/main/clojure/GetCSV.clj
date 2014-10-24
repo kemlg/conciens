@@ -93,4 +93,4 @@
   (with-open [out-file (io/writer filename)]
     (csv/write-csv out-file (cons (map name (keys (first map-total))) (map #(vals %) map-total)) :separator \;)))
 
-(get-csv "/Users/sergio/Desktop/players.csv")
+; (get-csv "/Users/sergio/Desktop/players.csv")

@@ -109,4 +109,10 @@
         (let [four-clusters (map annotate-clusters clusters-rdy)]
           (map-indexed write-clusters-to-csv-indexed four-clusters))))))
 
-(cluster-and-store)
+(defn execute []
+  (cluster-and-store))
+
+
+
+
+

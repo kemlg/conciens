@@ -67,9 +67,10 @@
   ;(json/json-str js))
   (cm/with-mongo conn (cm/insert! :players js)))
 
-(def all-records (get-clean-players))
 
-(dorun (map store-mongo (filter valid-result? (map process-record all-records))))
+(defn process-all-records [] 
+  (let [all-records (get-clean-players)]
+    (dorun (map store-mongo (filter valid-result? (map process-record all-records))))))
 
 
 

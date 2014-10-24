@@ -40,12 +40,18 @@
                  :append true ))
              (drop 1 original-data)))))
 
-(let [raw-ds (load-instances :csv (FileInputStream. (File. questions-file)))
-      ds (filter-apply (make-filter :remove-attributes {:dataset-format raw-ds :attributes [0]}) raw-ds)
-      kmeans (make-clusterer :k-means {:number-clusters 2})]
-  (clusterer-build kmeans ds)
-  ; (spit (str (:local.output_dir props) "/clustering.txt") kmeans)
-  (let [cds (clusterer-cluster kmeans ds)]
-    (save-instances :csv (FileOutputStream. (File. temp-file)) cds)
-    (save-clusters questions-file temp-file)
-    (assign-clusters achievements-file temp-file)))
+(defn execute-clustering []
+  (let [raw-ds (load-instances :csv (FileInputStream. (File. questions-file)))
+        ds (filter-apply (make-filter :remove-attributes {:dataset-format raw-ds :attributes [0]}) raw-ds)
+        kmeans (make-clusterer :k-means {:number-clusters 2})]
+    (clusterer-build kmeans ds)
+    ; (spit (str (:local.output_dir props) "/clustering.txt") kmeans)
+    (let [cds (clusterer-cluster kmeans ds)]
+      (save-instances :csv (FileOutputStream. (File. temp-file)) cds)
+      (save-clusters questions-file temp-file)
+      (assign-clusters achievements-file temp-file))))
+
+
+
+
+

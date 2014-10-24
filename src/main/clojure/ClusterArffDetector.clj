@@ -1,4 +1,5 @@
 (ns ClusterArffDetector
   (:require clojure.string))
 
-(filter #(. % contains "cluster") (clojure.string/split (slurp "/tmp/lala.arff") #",|\n"))
+(defn arff-detector []
+  (filter #(. % contains "cluster") (clojure.string/split (slurp "/tmp/lala.arff") #",|\n")))
