@@ -49,8 +49,12 @@
 
 ;; {:event-type EVENT_TYPE_PLAYER_SPELL_CAST, :num-values [0 0], :player {:y 15.5224, :description X: -9464.03 Y: 15.5224 Z: 56.9631 O: 0.474735, :o 0.474735, :name Grijander, :level 1, :z 56.9631, :x -9464.03, :map 0, :guid 2}, :spell {:id 687, :name true, :family 5}}
 
+(def conn (m/make-connection :conciens))
+(m/set-connection! conn)
+(m/set-write-concern conn :errors-ignored)
 
 (go-loop [item (<! ch)]
+  (m/insert! :events item)
   (if (not (nil? (:player item)))
     (do
       (println item)
