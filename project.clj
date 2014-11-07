@@ -11,6 +11,8 @@
                   [lib-noir "0.7.9"]
                   [congomongo "0.4.1"]
                   [clj-http "0.9.1"]
+                  [com.github.tranchis/clj-bson "0.2.0"]
+                  [com.novemberain/langohr "3.0.0-rc2"]
                   [org.clojure/core.async "0.1.303.0-886421-alpha"]
                   [org.clojure/data.json "0.2.4"]
                   [net.sf.ictalive/services "1.0.3"]
