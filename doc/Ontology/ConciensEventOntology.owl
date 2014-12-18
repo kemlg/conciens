@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Action"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AddObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Animal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Armor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Arrow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AuctionAct"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AuctionActEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Axe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Body"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bolt"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CastSpell"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChatMessage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChatMessageEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cloth"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Commitment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CommitmentEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CommunicativeAct"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Consumable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Damage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_AREA_TRIGGER"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_AUCTION_ADD"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_AUCTION_EXPIRE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_AUCTION_REMOVE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_AUCTION_SUCCESSFUL"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_CREATURE_KILL"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_CREATURE_UPDATE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_DAMAGE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_EMOTE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DAMAGED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DESTROYED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_HEAL"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_ITEM_EXPIRE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_ITEM_REMOVE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_ITEM_USE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_KILLED_BY_CREATURE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_LEVEL_CHANGED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_MONEY_CHANGED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_OBJECT_CHANGED"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_OBJECT_UPDATE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_CHAT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_CREATE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_DELETE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGIN"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGOUT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_SAVE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE_ZONE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_PVP_KILL"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_ACCEPT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_QUEST_STATUS_CHANGE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_WEATHER_CHANGE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EVENT_TYPE_WEATHER_UPDATE"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Emote"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EmoteEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EndangeredAnimal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Equipable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Heal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Health"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HuntableAnimal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InertBeing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InertBeingEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ingredient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Item"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kill"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KillEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LivingBeing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LivingBeingEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Location"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Map"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MetaEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Money"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Move"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NPC"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Object"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#POI"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicalAction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicalActionEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicalObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Player"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Potion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Property"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Protocol"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProtocolEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RemoveObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ring"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spell"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sword"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Value"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VirtualAction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VirtualGood"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VirtualGoodEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VirtualObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weapon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weather"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WeatherEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weight"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WhiteBunny"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#World"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zone"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_CREATURE_UPDATE"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS"/>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD"/>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT"/>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AddObject"/>
+        <Class IRI="#AuctionAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Animal"/>
+        <Class IRI="#NPC"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Armor"/>
+        <Class IRI="#Cloth"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Arrow"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AuctionAct"/>
+        <Class IRI="#CommunicativeAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AuctionActEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Axe"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bid"/>
+        <Class IRI="#AuctionAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Body"/>
+        <Class IRI="#Equipable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bolt"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bow"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CastSpell"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChatMessage"/>
+        <Class IRI="#CommunicativeAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChatMessageEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cloth"/>
+        <Class IRI="#Body"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Commitment"/>
+        <Class IRI="#CommunicativeAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CommitmentEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CommunicativeAct"/>
+        <Class IRI="#VirtualAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Consumable"/>
+        <Class IRI="#Item"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Damage"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_AREA_TRIGGER"/>
+        <Class IRI="#LivingBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_AUCTION_ADD"/>
+        <Class IRI="#AuctionActEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_AUCTION_EXPIRE"/>
+        <Class IRI="#AuctionActEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_AUCTION_REMOVE"/>
+        <Class IRI="#AuctionActEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_AUCTION_SUCCESSFUL"/>
+        <Class IRI="#AuctionActEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_CREATURE_KILL"/>
+        <Class IRI="#KillEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_CREATURE_UPDATE"/>
+        <Class IRI="#LivingBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_DAMAGE"/>
+        <Class IRI="#PhysicalActionEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_EMOTE"/>
+        <Class IRI="#EmoteEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DAMAGED"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DESTROYED"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+        <Class IRI="#ProtocolEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_HEAL"/>
+        <Class IRI="#PhysicalActionEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_ITEM_EXPIRE"/>
+        <Class IRI="#VirtualGoodEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_ITEM_REMOVE"/>
+        <Class IRI="#VirtualGoodEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_ITEM_USE"/>
+        <Class IRI="#VirtualGoodEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_KILLED_BY_CREATURE"/>
+        <Class IRI="#KillEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_LEVEL_CHANGED"/>
+        <Class IRI="#VirtualGoodEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_MONEY_CHANGED"/>
+        <Class IRI="#VirtualGoodEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_OBJECT_CHANGED"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_OBJECT_UPDATE"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_CHAT"/>
+        <Class IRI="#ChatMessageEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_CREATE"/>
+        <Class IRI="#MetaEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_DELETE"/>
+        <Class IRI="#MetaEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGIN"/>
+        <Class IRI="#MetaEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGOUT"/>
+        <Class IRI="#MetaEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_SAVE"/>
+        <Class IRI="#MetaEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+        <Class IRI="#PhysicalActionEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE"/>
+        <Class IRI="#LivingBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE_ZONE"/>
+        <Class IRI="#PhysicalActionEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_PVP_KILL"/>
+        <Class IRI="#KillEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_ACCEPT"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_QUEST_STATUS_CHANGE"/>
+        <Class IRI="#CommitmentEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_WEATHER_CHANGE"/>
+        <Class IRI="#WeatherEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EVENT_TYPE_WEATHER_UPDATE"/>
+        <Class IRI="#WeatherEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Emote"/>
+        <Class IRI="#CommunicativeAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EmoteEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EndangeredAnimal"/>
+        <Class IRI="#Animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Equipable"/>
+        <Class IRI="#Item"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Heal"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Health"/>
+        <Class IRI="#Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HuntableAnimal"/>
+        <Class IRI="#Animal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InertBeing"/>
+        <Class IRI="#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InertBeingEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ingredient"/>
+        <Class IRI="#Consumable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Item"/>
+        <Class IRI="#VirtualGood"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kill"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KillEvent"/>
+        <Class IRI="#PhysicalActionEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LivingBeing"/>
+        <Class IRI="#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LivingBeingEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Map"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MetaEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Money"/>
+        <Class IRI="#VirtualGood"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Move"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NPC"/>
+        <Class IRI="#LivingBeing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#POI"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhysicalAction"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhysicalActionEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhysicalObject"/>
+        <Class IRI="#Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Player"/>
+        <Class IRI="#LivingBeing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Potion"/>
+        <Class IRI="#Consumable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Protocol"/>
+        <Class IRI="#CommunicativeAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProtocolEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RemoveObject"/>
+        <Class IRI="#AuctionAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ring"/>
+        <Class IRI="#Body"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spell"/>
+        <Class IRI="#VirtualObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sword"/>
+        <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Value"/>
+        <Class IRI="#Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VirtualAction"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VirtualGood"/>
+        <Class IRI="#VirtualObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VirtualGoodEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VirtualObject"/>
+        <Class IRI="#Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weapon"/>
+        <Class IRI="#Equipable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weather"/>
+        <Class IRI="#Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WeatherEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weight"/>
+        <Class IRI="#Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WhiteBunny"/>
+        <Class IRI="#EndangeredAnimal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#World"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zone"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_AREA_TRIGGER"/>
+        <Class IRI="#EVENT_TYPE_CREATURE_UPDATE"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_AUCTION_ADD"/>
+        <Class IRI="#EVENT_TYPE_AUCTION_EXPIRE"/>
+        <Class IRI="#EVENT_TYPE_AUCTION_REMOVE"/>
+        <Class IRI="#EVENT_TYPE_AUCTION_SUCCESSFUL"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_CREATURE_KILL"/>
+        <Class IRI="#EVENT_TYPE_KILLED_BY_CREATURE"/>
+        <Class IRI="#EVENT_TYPE_PVP_KILL"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_DAMAGE"/>
+        <Class IRI="#EVENT_TYPE_HEAL"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_UPDATE_ZONE"/>
+        <Class IRI="#KillEvent"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DAMAGED"/>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_DESTROYED"/>
+        <Class IRI="#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"/>
+        <Class IRI="#EVENT_TYPE_OBJECT_CHANGED"/>
+        <Class IRI="#EVENT_TYPE_OBJECT_UPDATE"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS"/>
+        <Class IRI="#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT"/>
+        <Class IRI="#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_ITEM_EXPIRE"/>
+        <Class IRI="#EVENT_TYPE_ITEM_REMOVE"/>
+        <Class IRI="#EVENT_TYPE_ITEM_USE"/>
+        <Class IRI="#EVENT_TYPE_LEVEL_CHANGED"/>
+        <Class IRI="#EVENT_TYPE_MONEY_CHANGED"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_PLAYER_CREATE"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_DELETE"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGIN"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_LOGOUT"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_SAVE"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_QUEST_ACCEPT"/>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD"/>
+        <Class IRI="#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT"/>
+        <Class IRI="#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+        <Class IRI="#EVENT_TYPE_QUEST_STATUS_CHANGE"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EVENT_TYPE_WEATHER_CHANGE"/>
+        <Class IRI="#EVENT_TYPE_WEATHER_UPDATE"/>
+    </DisjointClasses>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Action</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Events related to player actions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Emote</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Special communicate act (such as dancing on graves and spitting on corpses)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Location</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Location on the World (or the world itself)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Meta</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Events from out of the world (PlayerLoggin, Character created, etc.)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Object</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Representing any object in the world</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#POI</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Point of interest, typically a polygon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PhysicalAction</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Actions that affect the physical environment directly</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PhysicalObject</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Object located in the phisical world</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Property</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Properties of the different elements</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Protocol</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Pre-defined and controlled chain of communicative acts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VirtualAction</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Actions that don&apos;t affect the physical environment directly</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VirtualGood</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">VirtualObject that can be carried on the inventory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VirtualObject</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Object not located on the physical world</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
