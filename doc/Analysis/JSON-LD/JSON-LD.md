@@ -67,4 +67,45 @@ Please, notice transforming a JSON-LD document to RDF triples is a straightforwa
 ### JSON-LD and Ontologies
 By using the context and the different keywords available (_e.g.,_ _@schema_, _@type_, _@id_, etc.) it is fairly simple to generate an RDF or OWL representation of the knowledge. Then, as populating the representation with data (effectively providing individuals to the taxonomy and different properties) tends to be easier in JSON than in OWL or even RDF, one can effectively refer the data structure generated in owl and populate the individuals in JSON-LD.
 
-So far, no plugins for Protégé or another knowledge engineering tool supporting JSON-LD has been found. One possible solution is to use protégé to generate an RDF vocabulary and [generate](https://gist.github.com/niklasl/2770154) a JSON-LD context from the vocabulary. Once the context has been generated, instances can be used to populate the knowledge base using JSON-LD compact form.
+So far, no plugins for Protégé or another knowledge engineering tool supporting JSON-LD has been found. One possible solution is to use protégé to generate an OWL vocabulary and [generate](https://github.com/stain/owl2jsonld) a JSON-LD context from the vocabulary. Once the context has been generated, instances can be used to populate the knowledge base using JSON-LD compact form.
+
+#### Tests with JSON-LD generation owl2jsonld
+Checkout project and build
+``` bash
+git clone https://github.com/stain/owl2jsonld.git
+cd owl2jsonld
+```
+Copy sample pizza OWL ontology (from the [Internet](http://130.88.198.11/co-ode-files/ontologies/pizza.owl) or from this directory) to _ owl2jsonld_ directory.
+Run the converter.
+``` bash
+lein run -c -p -o PizzaPatatitas.context.json -P OwlOntology file:pizza.owl
+```
+
+Linked data entities are generated from the context, so individuals created in the json-ld main file can effectively reference in linked data format: 
+- Ontology’s taxonomy
+```
+"OwlOntology:PizzaBase" : {
+      "@id" : "http://www.co-ode.org/ontologies/pizza/pizza.owl#PizzaBase"
+    },
+```
+- Ontology’s object properties
+```
+"OwlOntology:hasBase" : {
+      "@id" : "http://www.co-ode.org/ontologies/pizza/pizza.owl#hasBase",
+      "@type" : "@id"
+    },
+```
+- Ontology’s data properties
+```
+"OwlOntology:hasTestDataProperty" : {
+      "@id" : "http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTestDataProperty",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+```
+Please, notice the data property has been added for testing purposes and therefore is not present on the original ontology file.
+
+This process will effectively allow a computer program to:
+- Interpret the data as plain JSON, neglecting the expressiveness of the ontology (_i.e.,_  not navigating through the linked data referring to the ontology).
+- Interpret the data as an ontology, by navigating  through the linked data referring to the ontology to query the taxonomy or the meaning of the different properties
+However, it comes at a cost of non being able performing the reasoning process associated to instance classification via OWL reasoners, such process must be performed manually by the programs consuming the JSON-ld data.
+
