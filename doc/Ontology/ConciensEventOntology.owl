@@ -37,6 +37,9 @@
         <Class IRI="#Arrow"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Auction"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#AuctionAct"/>
     </Declaration>
     <Declaration>
@@ -82,7 +85,19 @@
         <Class IRI="#Consumable"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#CreatureKill"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Damage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DeclareExpire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DeclareSuccess"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DragonBreath"/>
     </Declaration>
     <Declaration>
         <Class IRI="#EVENT_TYPE_AREA_TRIGGER"/>
@@ -235,6 +250,12 @@
         <Class IRI="#Event"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#FushRoDah"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GreyBunny"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Heal"/>
     </Declaration>
     <Declaration>
@@ -250,6 +271,9 @@
         <Class IRI="#InertBeingEvent"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#InertBeingEventPlayerManipulation"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Ingredient"/>
     </Declaration>
     <Declaration>
@@ -260,6 +284,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#KillEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Level"/>
     </Declaration>
     <Declaration>
         <Class IRI="#LivingBeing"/>
@@ -274,7 +301,7 @@
         <Class IRI="#Map"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Meta"/>
+        <Class IRI="#MetaAction"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MetaEvent"/>
@@ -295,6 +322,9 @@
         <Class IRI="#POI"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#PVPKill"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#PhysicalAction"/>
     </Declaration>
     <Declaration>
@@ -305,6 +335,21 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Player"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayerCreate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayerDelete"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayerLogin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayerLogout"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayerSave"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Potion"/>
@@ -329,6 +374,12 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Sword"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Take"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TargetedPhysicalAction"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Value"/>
@@ -365,6 +416,114 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Zone"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAuctionAct"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAuctionObject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCastSpellCaster"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCastSpellSpell"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCommitmentPerformer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCommitmentRequester"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCommitmentReward"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDamageEvent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGood"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasHealEvent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasItemTarget"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKillAssasin"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKillVictim"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMapWeather"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMapWorld"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMoveLivingBeing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMoveLocation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPOIZone"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPerformed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPhysicalActionSource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPhysicalActionTarget"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProtocolAction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProtocolInitiator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProtocolParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProtocolSender"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSpellCastEvent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTakeObject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTakeSubject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasZoneMap"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasChatMessageContent"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCommitmentStatus"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLocationID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPhysicalActionQuantity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasState"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVirtualGoodQuantity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasWeatherGrade"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#EVENT_TYPE_CREATURE_UPDATE"/>
@@ -467,8 +626,24 @@
         <Class IRI="#Item"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#CreatureKill"/>
+        <Class IRI="#Kill"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Damage"/>
-        <Class IRI="#PhysicalAction"/>
+        <Class IRI="#TargetedPhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DeclareExpire"/>
+        <Class IRI="#AuctionAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DeclareSuccess"/>
+        <Class IRI="#AuctionAct"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DragonBreath"/>
+        <Class IRI="#Spell"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EVENT_TYPE_AREA_TRIGGER"/>
@@ -508,11 +683,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EVENT_TYPE_GAME_OBJECT_DAMAGED"/>
-        <Class IRI="#InertBeingEvent"/>
+        <Class IRI="#InertBeingEventPlayerManipulation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EVENT_TYPE_GAME_OBJECT_DESTROYED"/>
-        <Class IRI="#InertBeingEvent"/>
+        <Class IRI="#InertBeingEventPlayerManipulation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"/>
@@ -667,8 +842,16 @@
         <Class IRI="#Item"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#FushRoDah"/>
+        <Class IRI="#Spell"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GreyBunny"/>
+        <Class IRI="#EndangeredAnimal"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Heal"/>
-        <Class IRI="#PhysicalAction"/>
+        <Class IRI="#TargetedPhysicalAction"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Health"/>
@@ -687,6 +870,10 @@
         <Class IRI="#Event"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#InertBeingEventPlayerManipulation"/>
+        <Class IRI="#InertBeingEvent"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Ingredient"/>
         <Class IRI="#Consumable"/>
     </SubClassOf>
@@ -703,6 +890,10 @@
         <Class IRI="#PhysicalActionEvent"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Level"/>
+        <Class IRI="#VirtualGood"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#LivingBeing"/>
         <Class IRI="#PhysicalObject"/>
     </SubClassOf>
@@ -713,6 +904,10 @@
     <SubClassOf>
         <Class IRI="#Map"/>
         <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MetaAction"/>
+        <Class IRI="#Action"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#MetaEvent"/>
@@ -735,6 +930,10 @@
         <Class IRI="#Location"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#PVPKill"/>
+        <Class IRI="#Kill"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#PhysicalAction"/>
         <Class IRI="#Action"/>
     </SubClassOf>
@@ -749,6 +948,26 @@
     <SubClassOf>
         <Class IRI="#Player"/>
         <Class IRI="#LivingBeing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayerCreate"/>
+        <Class IRI="#MetaAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayerDelete"/>
+        <Class IRI="#MetaAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayerLogin"/>
+        <Class IRI="#MetaAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayerLogout"/>
+        <Class IRI="#MetaAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayerSave"/>
+        <Class IRI="#MetaAction"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Potion"/>
@@ -777,6 +996,14 @@
     <SubClassOf>
         <Class IRI="#Sword"/>
         <Class IRI="#Weapon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Take"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TargetedPhysicalAction"/>
+        <Class IRI="#PhysicalAction"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Value"/>
@@ -890,10 +1117,459 @@
         <Class IRI="#EVENT_TYPE_WEATHER_CHANGE"/>
         <Class IRI="#EVENT_TYPE_WEATHER_UPDATE"/>
     </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#PlayerCreate"/>
+        <Class IRI="#PlayerDelete"/>
+        <Class IRI="#PlayerLogin"/>
+        <Class IRI="#PlayerLogout"/>
+        <Class IRI="#PlayerSave"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasCastSpellSpell"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDamageEvent"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMoveLivingBeing"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMoveLocation"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasPOIZone"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasProtocolAction"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasProtocolInitiator"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasProtocolParticipant"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasMapWeather"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAuctionAct"/>
+        <Class IRI="#Auction"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAuctionObject"/>
+        <Class IRI="#Auction"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCastSpellCaster"/>
+        <Class IRI="#CastSpell"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCastSpellSpell"/>
+        <Class IRI="#CastSpell"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCommitmentPerformer"/>
+        <Class IRI="#Commitment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCommitmentRequester"/>
+        <Class IRI="#Commitment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCommitmentReward"/>
+        <Class IRI="#Commitment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDamageEvent"/>
+        <Class IRI="#EVENT_TYPE_DAMAGE"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGood"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasHealEvent"/>
+        <Class IRI="#EVENT_TYPE_HEAL"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasItemTarget"/>
+        <Class IRI="#VirtualGood"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKillAssasin"/>
+        <Class IRI="#Kill"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKillVictim"/>
+        <Class IRI="#Kill"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMapWeather"/>
+        <Class IRI="#Map"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMapWorld"/>
+        <Class IRI="#Map"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMoveLivingBeing"/>
+        <Class IRI="#Move"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMoveLocation"/>
+        <Class IRI="#Move"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPOIZone"/>
+        <Class IRI="#POI"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPerformed"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPhysicalActionSource"/>
+        <Class IRI="#Damage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPhysicalActionTarget"/>
+        <Class IRI="#Damage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProtocolAction"/>
+        <Class IRI="#Protocol"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProtocolInitiator"/>
+        <Class IRI="#Protocol"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProtocolParticipant"/>
+        <Class IRI="#Protocol"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProtocolSender"/>
+        <Class IRI="#Protocol"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSpellCastEvent"/>
+        <Class IRI="#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTakeObject"/>
+        <Class IRI="#Take"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTakeSubject"/>
+        <Class IRI="#Take"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasZoneMap"/>
+        <Class IRI="#Zone"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAuctionAct"/>
+        <Class IRI="#AuctionAct"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAuctionObject"/>
+        <Class IRI="#VirtualGood"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCastSpellCaster"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCastSpellSpell"/>
+        <Class IRI="#Spell"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCommitmentPerformer"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCommitmentRequester"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCommitmentReward"/>
+        <Class IRI="#VirtualObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDamageEvent"/>
+        <Class IRI="#Damage"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGood"/>
+        <Class IRI="#VirtualGood"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasHealEvent"/>
+        <Class IRI="#Heal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasItemTarget"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKillAssasin"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKillVictim"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMapWeather"/>
+        <Class IRI="#Weather"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMapWorld"/>
+        <Class IRI="#World"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMoveLivingBeing"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMoveLocation"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPOIZone"/>
+        <Class IRI="#Zone"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPerformed"/>
+        <Class IRI="#Action"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPhysicalActionSource"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPhysicalActionTarget"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProtocolAction"/>
+        <Class IRI="#Action"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProtocolInitiator"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProtocolParticipant"/>
+        <Class IRI="#Object"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProtocolSender"/>
+        <Class IRI="#Object"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSpellCastEvent"/>
+        <Class IRI="#CastSpell"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTakeObject"/>
+        <Class IRI="#VirtualObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTakeSubject"/>
+        <Class IRI="#LivingBeing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasZoneMap"/>
+        <Class IRI="#Map"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasLocationID"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasChatMessageContent"/>
+        <Class IRI="#ChatMessage"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCommitmentStatus"/>
+        <Class IRI="#Commitment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLocationID"/>
+        <Class IRI="#Location"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPhysicalActionQuantity"/>
+        <Class IRI="#Damage"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasState"/>
+        <Class IRI="#InertBeing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasVirtualGoodQuantity"/>
+        <Class IRI="#VirtualGood"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasWeatherGrade"/>
+        <Class IRI="#Weather"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasChatMessageContent"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">string = [active, fulfilled, failed]</Literal>
+        </Annotation>
+        <DataProperty IRI="#hasCommitmentStatus"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLocationID"/>
+        <Datatype abbreviatedIRI="xsd:long"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPhysicalActionQuantity"/>
+        <Datatype abbreviatedIRI="xsd:long"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasState"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasVirtualGoodQuantity"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasWeatherGrade"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Action</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Events related to player actions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AuctionActEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasAuctionAct and hasAuctionObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChatMessageEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasPerformed and hasChatMessageContent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CommitmentEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasCommitmentPerformer, hasCommitmentRequester, hasCommitmentReward, hasCommitmentStatus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_AREA_TRIGGER</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasMoveLocation. Maps to POI. Mapping from POI to Zone, Map and World is supported via Object properties too.
+Mapping player action via hasPerformed relation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_CREATURE_UPDATE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Reffers to LivingBeing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_DAMAGE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasPhysicalActionSource and target and hasPhysicalActionQuantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasTakeSubject, hasTakeObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_HEAL</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasPhysicalActionSource and target and hasPhysicalActionQuantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_ITEM_EXPIRE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasGood </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_ITEM_REMOVE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasVirtualGoodQuantity, hasGood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_ITEM_USE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasVirtualGoodQuantity, hasGood and hasItemTarget</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_KILLED_BY_CREATURE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasKilled</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_LEVEL_CHANGED</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasVirtualGoodQuantity and hasGood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_MONEY_CHANGED</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasVirtualGoodQuantity and hasGood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_OBJECT_CHANGED</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasState</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_OBJECT_UPDATE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasState</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_PLAYER_SPELL_CAST</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasCastSpellCaster, hasCastSpellSpell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_PLAYER_UPDATE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Reffers to LivingBeing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_PLAYER_UPDATE_ZONE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasMoveLocation. Maps to POI. Mapping from POI to Zone, Map and World is supported via Object properties too.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_PVP_KILL</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasKilled</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_WEATHER_CHANGE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMapWeather</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EVENT_TYPE_WEATHER_UPDATE</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMapWeather</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -902,13 +1578,28 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmoteEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasPerformed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KillEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasKillAssasin, hasKillVictim</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Location</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Location on the World (or the world itself)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Meta</IRI>
+        <IRI>#MetaAction</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Events from out of the world (PlayerLoggin, Character created, etc.)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MetaEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Reffers to meta events via hasPerformed can be extended if required</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -942,6 +1633,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ProtocolEvent</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">See hasProtocolAction, hasProtocolSender, hasProtocolParticipant and hasProtocolInitiator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Spell</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A spell instance used as reference when spells are cast</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#VirtualAction</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Actions that don&apos;t affect the physical environment directly</Literal>
     </AnnotationAssertion>
@@ -954,6 +1655,46 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#VirtualObject</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Object not located on the physical world</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCommitmentPerformer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Being taking the commitment (e.g., accepting a quest)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCommitmentRequester</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Being providing the commitment (eg.g., proving the quest)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCommitmentReward</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reward associated to fulfilling the commitment, if any</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasKillAssasin</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Consider upgrading to physical object</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMoveLocation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">See hasMoveLocation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPerformed</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasPerformed, it relates players to actions and actions to objects</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPhysicalActionSource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasPhysicalActionSource and target</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTakeObject</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">See hasTakeSubject, hasTakeObject</Literal>
     </AnnotationAssertion>
 </Ontology>
 

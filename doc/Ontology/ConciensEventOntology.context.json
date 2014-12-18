@@ -1,0 +1,554 @@
+{
+  "@context" : {
+    "OwlOntology:topDataProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topDataProperty"
+    },
+    "OwlOntology:Ring" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Ring"
+    },
+    "OwlOntology:InertBeingEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#InertBeingEvent"
+    },
+    "OwlOntology:hasMapWeather" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasMapWeather",
+      "@type" : "@id"
+    },
+    "OwlOntology:WhiteBunny" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#WhiteBunny"
+    },
+    "OwlOntology:EVENT_TYPE_OBJECT_CHANGED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_OBJECT_CHANGED"
+    },
+    "OwlOntology:Health" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Health"
+    },
+    "OwlOntology:Weapon" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Weapon"
+    },
+    "OwlOntology:EVENT_TYPE_WEATHER_UPDATE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_WEATHER_UPDATE"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_SELECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_SELECT"
+    },
+    "OwlOntology:DeclareExpire" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#DeclareExpire"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_SELECT_OBJECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_SELECT_OBJECT"
+    },
+    "OwlOntology:hasKillVictim" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasKillVictim",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_LOGOUT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_LOGOUT"
+    },
+    "OwlOntology:ChatMessageEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#ChatMessageEvent"
+    },
+    "OwlOntology:VirtualGoodEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#VirtualGoodEvent"
+    },
+    "OwlOntology:EVENT_TYPE_AREA_TRIGGER" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_AREA_TRIGGER"
+    },
+    "OwlOntology:hasTakeSubject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasTakeSubject",
+      "@type" : "@id"
+    },
+    "OwlOntology:Bow" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Bow"
+    },
+    "OwlOntology:MetaEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#MetaEvent"
+    },
+    "OwlOntology:InertBeing" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#InertBeing"
+    },
+    "OwlOntology:Auction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Auction"
+    },
+    "OwlOntology:PhysicalActionEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PhysicalActionEvent"
+    },
+    "OwlOntology:Level" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Level"
+    },
+    "OwlOntology:EVENT_TYPE_GOSSIP_SELECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GOSSIP_SELECT"
+    },
+    "OwlOntology:EVENT_TYPE_AUCTION_EXPIRE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_AUCTION_EXPIRE"
+    },
+    "OwlOntology:Armor" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Armor"
+    },
+    "OwlOntology:VirtualGood" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#VirtualGood"
+    },
+    "OwlOntology:Move" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Move"
+    },
+    "OwlOntology:EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_STATUS_CHANGE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_STATUS_CHANGE"
+    },
+    "OwlOntology:AddObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#AddObject"
+    },
+    "OwlOntology:FushRoDah" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#FushRoDah"
+    },
+    "OwlOntology:Event" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Event"
+    },
+    "OwlOntology:Consumable" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Consumable"
+    },
+    "OwlOntology:EVENT_TYPE_AUCTION_SUCCESSFUL" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_AUCTION_SUCCESSFUL"
+    },
+    "OwlOntology:EVENT_TYPE_GAME_OBJECT_DAMAGED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GAME_OBJECT_DAMAGED"
+    },
+    "OwlOntology:hasGood" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasGood",
+      "@type" : "@id"
+    },
+    "OwlOntology:Weather" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Weather"
+    },
+    "OwlOntology:Take" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Take"
+    },
+    "OwlOntology:POI" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#POI"
+    },
+    "OwlOntology:InertBeingEventPlayerManipulation" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#InertBeingEventPlayerManipulation"
+    },
+    "OwlOntology:Item" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Item"
+    },
+    "OwlOntology:hasPhysicalActionQuantity" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasPhysicalActionQuantity",
+      "@type" : "http://www.w3.org/2001/XMLSchema#long"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_UPDATE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_UPDATE"
+    },
+    "OwlOntology:Emote" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Emote"
+    },
+    "OwlOntology:hasProtocolSender" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasProtocolSender",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasMapWorld" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasMapWorld",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasPhysicalActionSource" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasPhysicalActionSource",
+      "@type" : "@id"
+    },
+    "OwlOntology:Player" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Player"
+    },
+    "OwlOntology:RemoveObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#RemoveObject"
+    },
+    "OwlOntology:EVENT_TYPE_LEVEL_CHANGED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_LEVEL_CHANGED"
+    },
+    "OwlOntology:Arrow" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Arrow"
+    },
+    "OwlOntology:hasProtocolAction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasProtocolAction",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasPOIZone" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasPOIZone",
+      "@type" : "@id"
+    },
+    "OwlOntology:LivingBeing" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#LivingBeing"
+    },
+    "OwlOntology:hasCommitmentReward" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCommitmentReward",
+      "@type" : "@id"
+    },
+    "OwlOntology:PVPKill" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PVPKill"
+    },
+    "OwlOntology:Money" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Money"
+    },
+    "OwlOntology:Sword" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Sword"
+    },
+    "OwlOntology:Axe" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Axe"
+    },
+    "OwlOntology:PlayerLogout" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PlayerLogout"
+    },
+    "OwlOntology:EVENT_TYPE_MONEY_CHANGED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_MONEY_CHANGED"
+    },
+    "OwlOntology:WeatherEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#WeatherEvent"
+    },
+    "OwlOntology:TargetedPhysicalAction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#TargetedPhysicalAction"
+    },
+    "OwlOntology:topObjectProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_ITEM_EXPIRE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_ITEM_EXPIRE"
+    },
+    "OwlOntology:hasDamageEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasDamageEvent",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasZoneMap" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasZoneMap",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasCommitmentRequester" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCommitmentRequester",
+      "@type" : "@id"
+    },
+    "OwlOntology:Kill" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Kill"
+    },
+    "OwlOntology:EVENT_TYPE_GOSSIP_SELECT_OBJECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GOSSIP_SELECT_OBJECT"
+    },
+    "OwlOntology:Ingredient" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Ingredient"
+    },
+    "OwlOntology:Action" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Action"
+    },
+    "OwlOntology:CastSpell" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#CastSpell"
+    },
+    "OwlOntology:hasKillAssasin" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasKillAssasin",
+      "@type" : "@id"
+    },
+    "OwlOntology:KillEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#KillEvent"
+    },
+    "OwlOntology:EmoteEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EmoteEvent"
+    },
+    "OwlOntology:Potion" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Potion"
+    },
+    "OwlOntology:ProtocolEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#ProtocolEvent"
+    },
+    "OwlOntology:Cloth" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Cloth"
+    },
+    "OwlOntology:PlayerCreate" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PlayerCreate"
+    },
+    "OwlOntology:ChatMessage" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#ChatMessage"
+    },
+    "OwlOntology:hasPhysicalActionTarget" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasPhysicalActionTarget",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_LOGIN" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_LOGIN"
+    },
+    "OwlOntology:hasTakeObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasTakeObject",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasCommitmentPerformer" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCommitmentPerformer",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_DAMAGE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_DAMAGE"
+    },
+    "OwlOntology:hasCastSpellCaster" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCastSpellCaster",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasProtocolParticipant" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasProtocolParticipant",
+      "@type" : "@id"
+    },
+    "OwlOntology:Object" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Object"
+    },
+    "OwlOntology:EVENT_TYPE_CREATURE_KILL" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_CREATURE_KILL"
+    },
+    "OwlOntology:Protocol" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Protocol"
+    },
+    "OwlOntology:PhysicalAction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PhysicalAction"
+    },
+    "OwlOntology:NPC" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#NPC"
+    },
+    "OwlOntology:hasMoveLocation" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasMoveLocation",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_REWARD_OBJECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_REWARD_OBJECT"
+    },
+    "OwlOntology:CommitmentEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#CommitmentEvent"
+    },
+    "OwlOntology:EVENT_TYPE_GOSSIP_HELLO" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GOSSIP_HELLO"
+    },
+    "OwlOntology:EVENT_TYPE_WEATHER_CHANGE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_WEATHER_CHANGE"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_SAVE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_SAVE"
+    },
+    "OwlOntology:hasWeatherGrade" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasWeatherGrade",
+      "@type" : "http://www.w3.org/2001/XMLSchema#float"
+    },
+    "OwlOntology:comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "OwlOntology:MetaAction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#MetaAction"
+    },
+    "OwlOntology:hasAuctionObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasAuctionObject",
+      "@type" : "@id"
+    },
+    "OwlOntology:hasMoveLivingBeing" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasMoveLivingBeing",
+      "@type" : "@id"
+    },
+    "OwlOntology:CreatureKill" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#CreatureKill"
+    },
+    "OwlOntology:EVENT_TYPE_GAME_OBJECT_DESTROYED" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GAME_OBJECT_DESTROYED"
+    },
+    "OwlOntology:hasPerformed" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasPerformed",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_GOSSIP_HELLO_OBJECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GOSSIP_HELLO_OBJECT"
+    },
+    "OwlOntology:hasState" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasState",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "OwlOntology:CommunicativeAct" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#CommunicativeAct"
+    },
+    "OwlOntology:hasAuctionAct" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasAuctionAct",
+      "@type" : "@id"
+    },
+    "OwlOntology:Property" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Property"
+    },
+    "OwlOntology:hasLocationID" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasLocationID",
+      "@type" : "http://www.w3.org/2001/XMLSchema#long"
+    },
+    "OwlOntology:EVENT_TYPE_EMOTE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_EMOTE"
+    },
+    "OwlOntology:hasItemTarget" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasItemTarget",
+      "@type" : "@id"
+    },
+    "OwlOntology:GreyBunny" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#GreyBunny"
+    },
+    "OwlOntology:Animal" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Animal"
+    },
+    "OwlOntology:Heal" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Heal"
+    },
+    "OwlOntology:hasSpellCastEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasSpellCastEvent",
+      "@type" : "@id"
+    },
+    "OwlOntology:World" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#World"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_CREATE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_CREATE"
+    },
+    "OwlOntology:hasCommitmentStatus" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCommitmentStatus",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "OwlOntology:Bolt" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Bolt"
+    },
+    "OwlOntology:AuctionAct" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#AuctionAct"
+    },
+    "OwlOntology:Equipable" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Equipable"
+    },
+    "OwlOntology:Location" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Location"
+    },
+    "OwlOntology:EVENT_TYPE_AUCTION_REMOVE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_AUCTION_REMOVE"
+    },
+    "OwlOntology:PlayerDelete" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PlayerDelete"
+    },
+    "OwlOntology:Bid" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Bid"
+    },
+    "OwlOntology:EVENT_TYPE_ITEM_USE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_ITEM_USE"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_SPELL_CAST" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_SPELL_CAST"
+    },
+    "OwlOntology:PlayerLogin" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PlayerLogin"
+    },
+    "OwlOntology:EVENT_TYPE_PVP_KILL" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PVP_KILL"
+    },
+    "OwlOntology:hasProtocolInitiator" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasProtocolInitiator",
+      "@type" : "@id"
+    },
+    "OwlOntology:EVENT_TYPE_ITEM_REMOVE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_ITEM_REMOVE"
+    },
+    "OwlOntology:EVENT_TYPE_GET_DIALOG_STATUS_OBJECT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"
+    },
+    "OwlOntology:EVENT_TYPE_HEAL" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_HEAL"
+    },
+    "OwlOntology:LivingBeingEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#LivingBeingEvent"
+    },
+    "OwlOntology:EVENT_TYPE_AUCTION_ADD" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_AUCTION_ADD"
+    },
+    "OwlOntology:Damage" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Damage"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_ACCEPT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_ACCEPT"
+    },
+    "OwlOntology:Zone" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Zone"
+    },
+    "OwlOntology:hasHealEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasHealEvent",
+      "@type" : "@id"
+    },
+    "OwlOntology:AuctionActEvent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#AuctionActEvent"
+    },
+    "OwlOntology:hasChatMessageContent" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasChatMessageContent",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_CHAT" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_CHAT"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_UPDATE_ZONE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_UPDATE_ZONE"
+    },
+    "OwlOntology:HuntableAnimal" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#HuntableAnimal"
+    },
+    "OwlOntology:Weight" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Weight"
+    },
+    "OwlOntology:EVENT_TYPE_GET_DIALOG_STATUS" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_GET_DIALOG_STATUS"
+    },
+    "OwlOntology:EVENT_TYPE_CREATURE_UPDATE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_CREATURE_UPDATE"
+    },
+    "OwlOntology:PlayerSave" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PlayerSave"
+    },
+    "OwlOntology:EndangeredAnimal" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EndangeredAnimal"
+    },
+    "OwlOntology:EVENT_TYPE_KILLED_BY_CREATURE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_KILLED_BY_CREATURE"
+    },
+    "OwlOntology:hasCastSpellSpell" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasCastSpellSpell",
+      "@type" : "@id"
+    },
+    "OwlOntology:Value" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Value"
+    },
+    "OwlOntology:DragonBreath" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#DragonBreath"
+    },
+    "OwlOntology:hasVirtualGoodQuantity" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#hasVirtualGoodQuantity",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "OwlOntology:EVENT_TYPE_OBJECT_UPDATE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_OBJECT_UPDATE"
+    },
+    "OwlOntology:Spell" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Spell"
+    },
+    "OwlOntology:Body" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Body"
+    },
+    "OwlOntology:PhysicalObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#PhysicalObject"
+    },
+    "OwlOntology:Commitment" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Commitment"
+    },
+    "OwlOntology:VirtualAction" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#VirtualAction"
+    },
+    "OwlOntology:VirtualObject" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#VirtualObject"
+    },
+    "OwlOntology:Map" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Map"
+    },
+    "OwlOntology:EVENT_TYPE_QUEST_REWARD" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_QUEST_REWARD"
+    },
+    "OwlOntology:DeclareSuccess" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#DeclareSuccess"
+    },
+    "OwlOntology:EVENT_TYPE_PLAYER_DELETE" : {
+      "@id" : "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#EVENT_TYPE_PLAYER_DELETE"
+    }
+  }
+}
