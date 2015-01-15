@@ -23,9 +23,9 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException
     {
-        String JENA = "/home/igomez/Docencia/AIA/2012-2013/2013-04-10 Sustitucion Ulises/JenaTest/";
-        String File = "PizzaPatatitas.owl";
-        String NamingContext = "http://www.co-ode.org/ontologies/pizza/pizza.owl";
+        String JENA = "/Users/igomez/deapt/dea-repo/conciens/doc/JENA/JenaTest/";
+        String File = "ConciensEventOntology.owl";
+        String NamingContext = "http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl";
         
         System.out.println("----------------Starting program -------------");
 
@@ -33,7 +33,7 @@ public class Main {
 
         tester.loadOntology();        
 
-        //tester.getClasses();
+        tester.getClasses();
 
         //tester.getIndividuals();
 
@@ -42,20 +42,20 @@ public class Main {
         //tester.getPropertiesByClass();       
 
         System.out.println("Run a test Object property");
-        tester.runSparqlQueryDataProperty();
+        //tester.runSparqlQueryDataProperty();
 
         System.out.println("Run a test Data property");
-        tester.runSparqlQueryObjectProperty();
+        //tester.runSparqlQueryObjectProperty();
 
         System.out.println("Run and modify");
-        tester.runSparqlQueryModify();
+        //tester.runSparqlQueryModify();
 
         System.out.println("Re-Run to check modification");
-        tester.runSparqlQueryModify();
+        //tester.runSparqlQueryModify();
 
         
         
-        tester.releaseOntology();
+        //tester.releaseOntology();
         
         System.out.println("--------- Program terminated --------------------");
      

@@ -1,0 +1,1609 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasAuctionAct -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasAuctionAct">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Auction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasAuctionObject -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasAuctionObject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Auction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCastSpellCaster -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCastSpellCaster">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CastSpell"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCastSpellSpell -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCastSpellSpell">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CastSpell"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Spell"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentPerformer -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentPerformer">
+        <rdfs:comment>Being taking the commitment (e.g., accepting a quest)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentRequester -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentRequester">
+        <rdfs:comment>Being providing the commitment (eg.g., proving the quest)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentReward -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentReward">
+        <rdfs:comment>Reward associated to fulfilling the commitment, if any</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasDamageEvent -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasDamageEvent">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_DAMAGE"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasGood -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasGood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasHealEvent -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasHealEvent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_HEAL"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Heal"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasItemTarget -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasItemTarget">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasKillAssasin -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasKillAssasin">
+        <rdfs:comment>Consider upgrading to physical object</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasKillVictim -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasKillVictim">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMapWeather -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMapWeather">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Map"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weather"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMapWorld -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMapWorld">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Map"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#World"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMoveLivingBeing -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMoveLivingBeing">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Move"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMoveLocation -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasMoveLocation">
+        <rdfs:comment>See hasMoveLocation</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Move"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPOIZone -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPOIZone">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#POI"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Zone"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPerformed -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPerformed">
+        <rdfs:comment>hasPerformed, it relates players to actions and actions to objects</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionSource -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionSource">
+        <rdfs:comment>hasPhysicalActionSource and target</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionTarget -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionTarget">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolAction -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolAction">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolInitiator -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolInitiator">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolParticipant -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolParticipant">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolSender -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasProtocolSender">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasSpellCastEvent -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasSpellCastEvent">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CastSpell"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasTakeObject -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasTakeObject">
+        <rdfs:comment>See hasTakeSubject, hasTakeObject</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Take"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasTakeSubject -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasTakeSubject">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Take"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasZoneMap -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasZoneMap">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Map"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Zone"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasChatMessageContent -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasChatMessageContent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentStatus -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentStatus">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    <Axiom>
+        <rdfs:comment>string = [active, fulfilled, failed]</rdfs:comment>
+        <annotatedSource rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasCommitmentStatus"/>
+        <annotatedProperty rdf:resource="&rdfs;range"/>
+        <annotatedTarget rdf:resource="&xsd;string"/>
+    </Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasLocationID -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasLocationID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+        <rdfs:range rdf:resource="&xsd;long"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionQuantity -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasPhysicalActionQuantity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage"/>
+        <rdfs:range rdf:resource="&xsd;long"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasState -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasState">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeing"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasVirtualGoodQuantity -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasVirtualGoodQuantity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasWeatherGrade -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#hasWeatherGrade">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weather"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action">
+        <rdfs:comment xml:lang="en">Events related to player actions</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AddObject -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AddObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Animal -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Animal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#NPC"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Armor -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Armor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Cloth"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Arrow -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Arrow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Auction -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Auction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">See hasAuctionAct and hasAuctionObject</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Axe -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Axe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bid -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Body -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Body">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Equipable"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bolt -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bolt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bow -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Bow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CastSpell -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CastSpell">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessage -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessageEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessageEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">See hasPerformed and hasChatMessageContent</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Cloth -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Cloth">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Body"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Commitment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">See hasCommitmentPerformer, hasCommitmentRequester, hasCommitmentReward, hasCommitmentStatus</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Consumable -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Consumable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Item"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CreatureKill -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CreatureKill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Damage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#TargetedPhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DeclareExpire -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DeclareExpire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DeclareSuccess -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DeclareSuccess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DragonBreath -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#DragonBreath">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Spell"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AREA_TRIGGER -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AREA_TRIGGER">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeingEvent"/>
+        <rdfs:comment xml:lang="en">See hasMoveLocation. Maps to POI. Mapping from POI to Zone, Map and World is supported via Object properties too.
+Mapping player action via hasPerformed relation</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_ADD -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_ADD">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_EXPIRE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_EXPIRE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_REMOVE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_REMOVE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_SUCCESSFUL -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_SUCCESSFUL">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionActEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_KILL -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_KILL">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_UPDATE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_UPDATE">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeingEvent"/>
+        <rdfs:comment xml:lang="en">Reffers to LivingBeing</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_DAMAGE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_DAMAGE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent"/>
+        <rdfs:comment xml:lang="en">See hasPhysicalActionSource and target and hasPhysicalActionQuantity</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_EMOTE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_EMOTE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EmoteEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DAMAGED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DAMAGED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEventPlayerManipulation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DESTROYED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DESTROYED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEventPlayerManipulation"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent"/>
+        <rdfs:comment xml:lang="en">See hasTakeSubject, hasTakeObject</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO_OBJECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO_OBJECT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT_OBJECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT_OBJECT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_HEAL -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_HEAL">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent"/>
+        <rdfs:comment xml:lang="en">See hasPhysicalActionSource and target and hasPhysicalActionQuantity</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_EXPIRE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_EXPIRE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent"/>
+        <rdfs:comment xml:lang="en">See hasGood </rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_REMOVE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_REMOVE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent"/>
+        <rdfs:comment xml:lang="en">See hasVirtualGoodQuantity, hasGood</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_USE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_USE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent"/>
+        <rdfs:comment xml:lang="en">See hasVirtualGoodQuantity, hasGood and hasItemTarget</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_KILLED_BY_CREATURE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_KILLED_BY_CREATURE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent"/>
+        <rdfs:comment xml:lang="en">See hasKilled</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_LEVEL_CHANGED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_LEVEL_CHANGED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent"/>
+        <rdfs:comment xml:lang="en">See hasVirtualGoodQuantity and hasGood</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_MONEY_CHANGED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_MONEY_CHANGED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent"/>
+        <rdfs:comment xml:lang="en">See hasVirtualGoodQuantity and hasGood</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_CHANGED -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_CHANGED">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent"/>
+        <rdfs:comment xml:lang="en">See hasState</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_UPDATE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_UPDATE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent"/>
+        <rdfs:comment xml:lang="en">See hasState</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_CHAT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_CHAT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ChatMessageEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_CREATE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_CREATE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_DELETE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_DELETE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGIN -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGIN">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGOUT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGOUT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SAVE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SAVE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SPELL_CAST -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SPELL_CAST">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent"/>
+        <rdfs:comment xml:lang="en">See hasCastSpellCaster, hasCastSpellSpell</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeingEvent"/>
+        <rdfs:comment xml:lang="en">Reffers to LivingBeing</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE_ZONE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE_ZONE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent"/>
+        <rdfs:comment xml:lang="en">See hasMoveLocation. Maps to POI. Mapping from POI to Zone, Map and World is supported via Object properties too.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PVP_KILL -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PVP_KILL">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent"/>
+        <rdfs:comment xml:lang="en">See hasKilled</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_ACCEPT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_ACCEPT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD_OBJECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD_OBJECT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT">
+        <equivalentClass rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT_OBJECT -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT_OBJECT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_STATUS_CHANGE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_STATUS_CHANGE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommitmentEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_WEATHER_CHANGE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_WEATHER_CHANGE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WeatherEvent"/>
+        <disjointWith rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_WEATHER_UPDATE"/>
+        <rdfs:comment xml:lang="en">hasMapWeather</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_WEATHER_UPDATE -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_WEATHER_UPDATE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WeatherEvent"/>
+        <rdfs:comment xml:lang="en">hasMapWeather</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Emote -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Emote">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct"/>
+        <rdfs:comment xml:lang="en">Special communicate act (such as dancing on graves and spitting on corpses)</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EmoteEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EmoteEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">See hasPerformed</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EndangeredAnimal -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EndangeredAnimal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Animal"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Equipable -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Equipable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Item"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#FushRoDah -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#FushRoDah">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Spell"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#GreyBunny -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#GreyBunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EndangeredAnimal"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Heal -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Heal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#TargetedPhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Health -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Health">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#HuntableAnimal -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#HuntableAnimal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Animal"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeing -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalObject"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEventPlayerManipulation -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEventPlayerManipulation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#InertBeingEvent"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Ingredient -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Ingredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Consumable"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Item -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Item">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent"/>
+        <rdfs:comment xml:lang="en">See hasKillAssasin, hasKillVictim</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Level -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Level">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalObject"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeingEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeingEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location">
+        <rdfs:comment xml:lang="en">Location on the World (or the world itself)</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Map -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Map">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action"/>
+        <rdfs:comment xml:lang="en">Events from out of the world (PlayerLoggin, Character created, etc.)</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">Reffers to meta events via hasPerformed can be extended if required</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Money -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Money">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Move -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Move">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#NPC -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#NPC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object">
+        <rdfs:comment xml:lang="en">Representing any object in the world</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#POI -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#POI">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+        <rdfs:comment xml:lang="en">Point of interest, typically a polygon</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PVPKill -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PVPKill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Kill"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action"/>
+        <rdfs:comment xml:lang="en">Actions that affect the physical environment directly</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalActionEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalObject -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object"/>
+        <rdfs:comment xml:lang="en">Object located in the phisical world</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Player -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Player">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#LivingBeing"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerCreate -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerCreate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerDelete -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerDelete">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogin -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogout -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogout">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerSave -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerSave">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#MetaAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Potion -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Potion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Consumable"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property">
+        <rdfs:comment xml:lang="en">Properties of the different elements</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Protocol">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#CommunicativeAct"/>
+        <rdfs:comment xml:lang="en">Pre-defined and controlled chain of communicative acts</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#ProtocolEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+        <rdfs:comment xml:lang="en">See hasProtocolAction, hasProtocolSender, hasProtocolParticipant and hasProtocolInitiator</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#RemoveObject -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#RemoveObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#AuctionAct"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Ring -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Ring">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Body"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Spell -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Spell">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject"/>
+        <rdfs:comment xml:lang="en">A spell instance used as reference when spells are cast</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Sword -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Sword">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Take -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Take">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#TargetedPhysicalAction -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#TargetedPhysicalAction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PhysicalAction"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Value -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Value">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualAction -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualAction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Action"/>
+        <rdfs:comment xml:lang="en">Actions that don&apos;t affect the physical environment directly</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGood">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject"/>
+        <rdfs:comment xml:lang="en">VirtualObject that can be carried on the inventory</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualGoodEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#VirtualObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Object"/>
+        <rdfs:comment xml:lang="en">Object not located on the physical world</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weapon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Equipable"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weather -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weather">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WeatherEvent -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WeatherEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Event"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weight -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Weight">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Property"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WhiteBunny -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#WhiteBunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EndangeredAnimal"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#World -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#World">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Zone -->
+
+    <Class rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Zone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#Location"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AREA_TRIGGER"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_UPDATE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_ACCEPT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_REWARD_OBJECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_SELECT_OBJECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_QUEST_STATUS_CHANGE"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_ADD"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_EXPIRE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_REMOVE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_AUCTION_SUCCESSFUL"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_CREATURE_KILL"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_KILLED_BY_CREATURE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PVP_KILL"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_EXPIRE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_REMOVE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_ITEM_USE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_LEVEL_CHANGED"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_MONEY_CHANGED"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerCreate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerDelete"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogin"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerLogout"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#PlayerSave"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DAMAGED"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_DESTROYED"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GAME_OBJECT_LOOT_STATE_CHANGED"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_CHANGED"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_OBJECT_UPDATE"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_DAMAGE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_HEAL"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SPELL_CAST"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_UPDATE_ZONE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#KillEvent"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GET_DIALOG_STATUS_OBJECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_HELLO_OBJECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_GOSSIP_SELECT_OBJECT"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_CREATE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_DELETE"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGIN"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_LOGOUT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology.owl#EVENT_TYPE_PLAYER_SAVE"/>
+        </members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

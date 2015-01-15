@@ -149,16 +149,14 @@ public class JenaTester
         //List of ontology classes
         Iterator<OntClass> classesIt = model.listNamedClasses();
 
-        OntClass pizza = model.getOntClass("http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza");
+        //OntClass pizza = model.getOntClass("http://www.semanticweb.org/igomez/ontologies/2014/11/ConciensEventOntology#Action");
 
         while ( classesIt.hasNext() )
         {
             OntClass actual = classesIt.next();
-            System.out.println( "Ontology has class: " + actual.getURI() );
-            if (actual.hasSuperClass(pizza))
-            {
-                addInstances(actual.getURI(),actual.getLocalName());
-            }
+            OntClass subactual = actual.getSuperClass();
+            System.out.println( "Ontology has class: " + actual.getURI() + "-" + subactual);
+            
         }
     }
 
